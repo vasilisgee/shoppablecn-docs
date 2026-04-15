@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <g>
+    <path
+      d="M118.5 475.24C94.56 363.48 82.58 307.6 112.6 270.47C142.62 233.33 199.77 233.33 314.07 233.33H485.94C600.24 233.33 657.38 233.33 687.4 270.47C717.42 307.6 705.45 363.48 681.5 475.24L667.21 541.91C650.98 617.66 642.86 655.53 615.36 677.77C587.86 700 549.12 700 471.65 700H328.35C250.88 700 212.14 700 184.64 677.77C157.14 655.53 149.02 617.66 132.79 541.91L118.5 475.24Z"
+      fill="none"
+      stroke="#000000"
+      stroke-width="50"
+    />
+    <path
+      d="M600 300L500 100"
+      fill="none"
+      stroke="#000000"
+      stroke-width="50"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M200 300L300 100"
+      fill="none"
+      stroke="#000000"
+      stroke-width="50"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M264.17 567.8L478.22 350.06"
+      fill="none"
+      stroke="#000000"
+      stroke-width="50"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M390 589.51L504.18 473.36"
+      fill="none"
+      stroke="#000000"
+      stroke-width="50"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill-rule="evenodd"
+    />
+  </g>
+</svg>
