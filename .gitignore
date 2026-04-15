@@ -13,6 +13,9 @@
 
 # misc
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
 *.pem
 /.pnp
 .pnp.js
@@ -21,6 +24,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # others
-.env*.local
+.env*
 .vercel
 next-env.d.ts
