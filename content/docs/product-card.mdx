@@ -1,0 +1,342 @@
+---
+title: ProductCard
+description: Flexible product cards with multiple layouts, quick-buy variants, and optional image slideshows.
+---
+
+import {
+  ProductCardBadgeExample,
+  ProductCardCompareAtExample,
+  ProductCardHorizontalDetailedExample,
+  ProductCardHorizontalExample,
+  ProductCardLeadExample,
+  ProductCardOverlayExample,
+  ProductCardRatingExample,
+  ProductCardSlideshowControlsExample,
+  ProductCardSlideshowExample,
+  ProductCardVerticalExample,
+} from "@/components/docs/product-card-examples"
+
+export const productCardProps = {
+  product: {
+    type: <code>Product</code>,
+    required: true,
+    description: "The product data rendered by the card, including images, price, and optional variants.",
+  },
+  layout: {
+    type: <code>"vertical" | "horizontal" | "horizontal-detailed"</code>,
+    default: <code>"vertical"</code>,
+    description: "Chooses the visual layout of the card.",
+  },
+  variants: {
+    type: <code>"none" | "inline" | "overlay"</code>,
+    default: <code>"none"</code>,
+    description: "Controls how product variants are handled. Use overlay for the QuickOptions quick-buy flow.",
+  },
+  slideshowControls: {
+    type: <code>"arrows" | "dots" | "both" | "none"</code>,
+    default: <code>"both"</code>,
+    description: "Chooses which slideshow controls render when the product has multiple images.",
+  },
+  showWishlist: {
+    type: <code>boolean</code>,
+    default: <code>false</code>,
+    description: "Shows the wishlist button in the card header area.",
+  },
+  showRating: {
+    type: <code>boolean</code>,
+    default: <code>true</code>,
+    description: "Shows the product rating when rating data is available.",
+  },
+  showQuickView: {
+    type: <code>boolean</code>,
+    default: <code>false</code>,
+    description: "Shows the quick-view action button beside the primary action.",
+  },
+  onAddToCart: {
+    type: <code>(args: {'{'} productId: string; selectedVariants?: SelectedVariants {'}'}) =&gt; void</code>,
+    description: "Called when the primary action adds the product to cart. Overlay mode includes selected variants.",
+  },
+  onWishlistToggle: {
+    type: <code>(productId: string) =&gt; void</code>,
+    description: "Called when the wishlist button is pressed.",
+  },
+  onQuickView: {
+    type: <code>(productId: string) =&gt; void</code>,
+    description: "Called when the quick-view button is pressed.",
+  },
+  className: {
+    type: <code>string</code>,
+    description: "Optional className applied to the root card.",
+  },
+}
+
+# Product Card
+
+ProductCard is the core shopping primitive in shoppablecn. It covers simple
+catalog cards, denser comparison layouts, and quick-buy flows that slide the
+variant picker directly over the card instead of navigating away from the page.
+
+## Installation
+
+`product-card` installs from the shoppablecn registry and automatically pulls
+in the shared helpers and quick-options dependency it needs for overlay mode.
+
+```bash
+npx shadcn@latest add @shoppablecn/product-card
+```
+
+## Usage
+
+The minimal setup is a `product` object and the `ProductCard` component.
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <ProductCardLeadExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import { ProductCard } from "@/components/ui/product-card"
+import { mockProductSimple } from "@/lib/mock-data"
+
+export function Example() {
+  return <ProductCard product={mockProductSimple} />
+}
+```
+
+  </Tab>
+</Tabs>
+
+## Examples
+
+### Vertical layout
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <ProductCardVerticalExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import { ProductCard } from "@/components/ui/product-card"
+import { mockProductSimple } from "@/lib/mock-data"
+
+export function Example() {
+  return (
+    <ProductCard
+      layout="vertical"
+      product={mockProductSimple}
+      variants="none"
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Horizontal layout
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <ProductCardHorizontalExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import { ProductCard } from "@/components/ui/product-card"
+import { mockProductNew } from "@/lib/mock-data"
+
+export function Example() {
+  return (
+    <ProductCard
+      layout="horizontal"
+      product={mockProductNew}
+      variants="none"
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Horizontal detailed layout
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <ProductCardHorizontalDetailedExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import { ProductCard } from "@/components/ui/product-card"
+import { mockProductWithSale } from "@/lib/mock-data"
+
+export function Example() {
+  return (
+    <ProductCard
+      layout="horizontal-detailed"
+      product={mockProductWithSale}
+      variants="none"
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### With badge
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <ProductCardBadgeExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import { ProductCard } from "@/components/ui/product-card"
+import { mockProductWithSale } from "@/lib/mock-data"
+
+export function Example() {
+  return <ProductCard product={mockProductWithSale} showRating={false} />
+}
+```
+
+  </Tab>
+</Tabs>
+
+### With rating
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <ProductCardRatingExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import { ProductCard } from "@/components/ui/product-card"
+import { mockProductNew } from "@/lib/mock-data"
+
+export function Example() {
+  return <ProductCard product={mockProductNew} showRating />
+}
+```
+
+  </Tab>
+</Tabs>
+
+### With compare-at price
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <ProductCardCompareAtExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import { ProductCard } from "@/components/ui/product-card"
+import { mockProductWithSale } from "@/lib/mock-data"
+
+export function Example() {
+  return <ProductCard product={mockProductWithSale} showRating={false} />
+}
+```
+
+  </Tab>
+</Tabs>
+
+### With overlay variants
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <ProductCardOverlayExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import { ProductCard } from "@/components/ui/product-card"
+import { mockProductWithVariants } from "@/lib/mock-data"
+
+export function Example() {
+  return (
+    <ProductCard
+      onAddToCart={() => {}}
+      product={mockProductWithVariants}
+      variants="overlay"
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Image slideshow
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <ProductCardSlideshowExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import { ProductCard } from "@/components/ui/product-card"
+import { mockProductWithImages } from "@/lib/mock-data"
+
+export function Example() {
+  return <ProductCard product={mockProductWithImages} />
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Slideshow control variants
+
+<Callout title="Keyboard support stays on">
+  Even when `slideshowControls="none"`, arrow-key navigation still works after
+  the image region receives focus.
+</Callout>
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <ProductCardSlideshowControlsExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import { ProductCard } from "@/components/ui/product-card"
+import { mockProductWithImages } from "@/lib/mock-data"
+
+export function Example() {
+  return (
+    <>
+      <ProductCard product={mockProductWithImages} slideshowControls="both" />
+      <ProductCard product={mockProductWithImages} slideshowControls="arrows" />
+      <ProductCard product={mockProductWithImages} slideshowControls="dots" />
+      <ProductCard product={mockProductWithImages} slideshowControls="none" />
+    </>
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+## Props
+
+<TypeTable type={productCardProps} />
+
+## Accessibility
+
+- Keyboard navigation works for slideshow controls, action buttons, and overlay interactions.
+- Icon-only actions expose accessible labels.
+- Overlay mode manages focus and respects `prefers-reduced-motion`.
+- Slide navigation remains available with arrow keys when the image region is focused.
+
+## Related
+
+- [QuickOptions](/docs/quick-options) powers the overlay variant flow.
+- [HotspotImage](/docs/hotspot-image) can render ProductCard inside shoppable scene pins.
