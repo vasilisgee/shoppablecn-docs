@@ -1,0 +1,48 @@
+---
+title: Installation
+description: Add shoppablecn to your shadcn project and install any component from the live registry.
+---
+
+shoppablecn installs through the shadcn CLI, so you copy the component source
+straight into your project and keep full ownership of the code. There is no
+separate runtime package to manage, version-lock, or work around later.
+
+## Prerequisites
+
+- shadcn/ui initialized in your project. See the [official shadcn installation guide](https://ui.shadcn.com/docs/installation).
+- Node 18 or newer
+- React 18 or newer
+
+## Setup the namespace
+
+The recommended setup is to register the shoppablecn namespace once, then
+install components with short, readable commands.
+
+```bash
+npx shadcn@latest registry add @shoppablecn=https://shoppablecn.dev/r/{name}.json
+```
+
+This adds shoppablecn to your local `components.json` file and unlocks the
+namespace-based install commands below.
+
+```bash
+npx shadcn@latest add @shoppablecn/product-card
+npx shadcn@latest add @shoppablecn/quick-options
+npx shadcn@latest add @shoppablecn/hotspot-image
+```
+
+## Alternative: direct URL install
+
+If you prefer not to register a namespace, you can install directly from the
+live registry URLs instead.
+
+```bash
+npx shadcn@latest add https://shoppablecn.dev/r/product-card.json
+npx shadcn@latest add https://shoppablecn.dev/r/quick-options.json
+npx shadcn@latest add https://shoppablecn.dev/r/hotspot-image.json
+```
+
+## Next steps
+
+- Read the [Introduction](/docs) for an overview of the library.
+- Jump into [ProductCard](/docs/product-card), [QuickOptions](/docs/quick-options), or [HotspotImage](/docs/hotspot-image).
