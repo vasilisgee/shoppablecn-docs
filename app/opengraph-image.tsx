@@ -26,12 +26,12 @@ export default function OpenGraphImage() {
       >
         <div
           style={{
+            alignSelf: "flex-start",
             border: "1px solid black",
             borderRadius: "999px",
             display: "flex",
             fontSize: 24,
             padding: "10px 18px",
-            width: "fit-content",
           }}
         >
           shoppablecn

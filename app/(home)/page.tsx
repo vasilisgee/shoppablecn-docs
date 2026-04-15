@@ -3,7 +3,6 @@ import {
   Accessibility,
   ArrowRight,
   Copy,
-  Github,
   MousePointerClick,
   Package,
   Puzzle,
@@ -60,7 +59,6 @@ export default function HomePage() {
               rel="noreferrer"
               target="_blank"
             >
-              <Github aria-hidden="true" />
               Star on GitHub
             </Link>
           </div>
@@ -237,6 +235,60 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <section className="border-t bg-muted/20">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 py-20 text-center sm:px-6 md:py-28 lg:px-8">
+          <div className="max-w-2xl space-y-3">
+            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              Ready to build shoppable interfaces?
+            </h2>
+            <p className="text-base leading-7 text-muted-foreground sm:text-lg">
+              Join developers shipping faster, accessible, and better-looking
+              e-commerce UIs.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link
+              className={cn(buttonVariants({ size: "lg" }))}
+              href="/docs/product-card"
+            >
+              Get Started
+            </Link>
+            <Link
+              className={cn(
+                buttonVariants({
+                  size: "lg",
+                  variant: "outline",
+                })
+              )}
+              href={libraryRepoUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              View on GitHub
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <p>shoppablecn - MIT License</p>
+          <div className="flex items-center gap-4">
+            <Link className="hover:text-foreground" href="/docs">
+              Docs
+            </Link>
+            <Link
+              className="hover:text-foreground"
+              href={libraryRepoUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </Link>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }
