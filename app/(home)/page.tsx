@@ -4,8 +4,11 @@ import {
   ArrowRight,
   Copy,
   Github,
+  MousePointerClick,
+  Package,
   Puzzle,
   ShieldCheck,
+  SlidersHorizontal,
 } from "lucide-react"
 
 import { buttonVariants } from "@/components/ui/button"
@@ -137,6 +140,100 @@ export default function HomePage() {
                 </div>
               </CardHeader>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-20 sm:px-6 md:py-28 lg:px-8">
+          <div className="max-w-2xl space-y-3">
+            <p className="text-sm font-medium text-muted-foreground">
+              Three components, infinite scenes
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              Mix, match, and extend the three primitives that power the
+              library.
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <Link
+              className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+              href="/docs/product-card"
+            >
+              <Card className="h-full justify-between transition-colors hover:bg-muted/30">
+                <CardHeader className="space-y-4">
+                  <div className="flex size-10 items-center justify-center rounded-lg border bg-muted">
+                    <Package aria-hidden="true" className="size-4" />
+                  </div>
+                  <div className="space-y-2">
+                    <CardTitle>ProductCard</CardTitle>
+                    <CardDescription>
+                      Flexible product cards with three layouts and three
+                      variant modes. From minimal listings to full-variant
+                      quick-buy.
+                    </CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-2 text-sm font-medium">
+                  <span className="inline-flex items-center gap-2">
+                    Learn more
+                    <ArrowRight aria-hidden="true" className="size-4" />
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link
+              className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+              href="/docs/quick-options"
+            >
+              <Card className="h-full justify-between transition-colors hover:bg-muted/30">
+                <CardHeader className="space-y-4">
+                  <div className="flex size-10 items-center justify-center rounded-lg border bg-muted">
+                    <SlidersHorizontal aria-hidden="true" className="size-4" />
+                  </div>
+                  <div className="space-y-2">
+                    <CardTitle>QuickOptions</CardTitle>
+                    <CardDescription>
+                      Slide-up overlay for variant selection. Swatches, pills,
+                      sliders, dropdowns, and more.
+                    </CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-2 text-sm font-medium">
+                  <span className="inline-flex items-center gap-2">
+                    Learn more
+                    <ArrowRight aria-hidden="true" className="size-4" />
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link
+              className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+              href="/docs/hotspot-image"
+            >
+              <Card className="h-full justify-between transition-colors hover:bg-muted/30">
+                <CardHeader className="space-y-4">
+                  <div className="flex size-10 items-center justify-center rounded-lg border bg-muted">
+                    <MousePointerClick aria-hidden="true" className="size-4" />
+                  </div>
+                  <div className="space-y-2">
+                    <CardTitle>HotspotImage</CardTitle>
+                    <CardDescription>
+                      Shoppable scenes with pin-based product cards, marketing
+                      tooltips, or any custom content.
+                    </CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-2 text-sm font-medium">
+                  <span className="inline-flex items-center gap-2">
+                    Learn more
+                    <ArrowRight aria-hidden="true" className="size-4" />
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>
