@@ -8,12 +8,13 @@ import { HotspotLink } from "@/components/ui/hotspot-link"
 import { HotspotPin } from "@/components/ui/hotspot-pin"
 import { HotspotTooltip } from "@/components/ui/hotspot-tooltip"
 import { ProductCard } from "@/components/ui/product-card"
+import type { Product } from "@/components/ui/types"
 import {
-  mockProductSimple,
-  mockProductWithImages,
-  mockProductWithVariants,
+  mockSceneChairProduct,
+  mockSceneChairWithVariants,
   mockSceneLivingRoom,
   mockSceneMixedContent,
+  mockScenePillowProduct,
   mockSceneProductHero,
   type MockScene,
 } from "@/lib/mock-data"
@@ -40,8 +41,10 @@ function SceneFrame({ scene, children, className }: SceneFrameProps) {
 }
 
 function ProductPinCard({
+  product,
   overlay = false,
 }: {
+  product: Product
   overlay?: boolean
 }) {
   const handleAddToCart = React.useCallback(() => {
@@ -50,11 +53,15 @@ function ProductPinCard({
 
   return (
     <div className="w-[320px]">
-      <ProductCard
-        onAddToCart={handleAddToCart}
-        product={overlay ? mockProductWithVariants : mockProductWithImages}
-        variants={overlay ? "overlay" : "none"}
-      />
+      {overlay ? (
+        <ProductCard
+          onAddToCart={handleAddToCart}
+          product={product}
+          variants="overlay"
+        />
+      ) : (
+        <ProductCard product={product} variants="none" />
+      )}
     </div>
   )
 }
@@ -62,16 +69,16 @@ function ProductPinCard({
 export function HotspotBasicSceneExample() {
   return (
     <SceneFrame scene={mockSceneLivingRoom}>
-      <HotspotPin label="Simple cap product hotspot" x={24} y={52}>
-        <ProductPinCard />
+      <HotspotPin label="Lounge chair product hotspot" x={51} y={67}>
+        <ProductPinCard product={mockSceneChairProduct} />
       </HotspotPin>
-      <HotspotPin label="Weekend bundle hotspot" x={56} y={60}>
-        <ProductPinCard />
+      <HotspotPin label="Accent pillow product hotspot" x={51} y={53}>
+        <ProductPinCard product={mockScenePillowProduct} />
       </HotspotPin>
-      <HotspotPin label="Side table tooltip hotspot" x={77} y={28}>
+      <HotspotPin label="Floor lamp tooltip hotspot" x={24} y={18}>
         <HotspotTooltip
-          description="Solid oak table styling the scene with warm tonal contrast."
-          title="Oak side table"
+          description="Brushed brass floor lamp with a linen shade and a weighted marble base."
+          title="Arc floor lamp"
         />
       </HotspotPin>
     </SceneFrame>
@@ -81,16 +88,16 @@ export function HotspotBasicSceneExample() {
 export function HotspotPinVariantsExample() {
   return (
     <SceneFrame scene={mockSceneProductHero}>
-      <HotspotPin label="Plus pin example" variant="plus" x={36} y={28}>
+      <HotspotPin label="Plus pin on lounge chair" variant="plus" x={51} y={67}>
         <HotspotTooltip
-          description="Default plus pin with a small tooltip."
-          title="Plus pin"
+          description="The plus pin works well for larger focal products like the upholstered chair."
+          title="Harbor lounge chair"
         />
       </HotspotPin>
-      <HotspotPin label="Dot pin example" variant="dot" x={74} y={74}>
+      <HotspotPin label="Dot pin on floor lamp" variant="dot" x={24} y={18}>
         <HotspotTooltip
-          description="Compact dot pin for denser hotspot layouts."
-          title="Dot pin"
+          description="The compact dot pin is a lighter touch for secondary decor details like the lamp."
+          title="Arc floor lamp"
         />
       </HotspotPin>
     </SceneFrame>
@@ -100,19 +107,17 @@ export function HotspotPinVariantsExample() {
 export function HotspotContentTypesExample() {
   return (
     <SceneFrame scene={mockSceneMixedContent}>
-      <HotspotPin label="Tooltip content hotspot" x={52} y={32}>
+      <HotspotPin label="Tooltip content hotspot for the floor lamp" x={24} y={18}>
         <HotspotTooltip
-          description="Soft-loop lining keeps warmth high without adding bulk to the silhouette."
-          title="Brushed fleece interior"
+          description="Brushed brass and linen bring a softer, editorial feel to the seating corner."
+          title="Arc floor lamp"
         />
       </HotspotPin>
-      <HotspotPin label="Link content hotspot" variant="dot" x={79} y={20}>
-        <HotspotLink href="/docs/components/product-card" label="Open the lookbook" />
+      <HotspotPin label="Link content hotspot on the wall art" variant="dot" x={82} y={24}>
+        <HotspotLink href="/docs/components/product-card" label="See the full room edit" />
       </HotspotPin>
-      <HotspotPin label="Product card content hotspot" x={22} y={64}>
-        <div className="w-[320px]">
-          <ProductCard product={mockProductSimple} variants="none" />
-        </div>
+      <HotspotPin label="Product card content hotspot on the chair" x={51} y={67}>
+        <ProductPinCard product={mockSceneChairProduct} />
       </HotspotPin>
     </SceneFrame>
   )
@@ -121,65 +126,15 @@ export function HotspotContentTypesExample() {
 export function HotspotOverlayInPinExample() {
   return (
     <SceneFrame scene={mockSceneMixedContent}>
-      <HotspotPin label="Overlay product card hotspot" x={22} y={64}>
-        <ProductPinCard overlay />
+      <HotspotPin label="Overlay product card hotspot on the chair" x={51} y={67}>
+        <ProductPinCard overlay product={mockSceneChairWithVariants} />
       </HotspotPin>
-      <HotspotPin label="Companion tooltip hotspot" x={52} y={32}>
+      <HotspotPin label="Companion tooltip hotspot on the pillow" x={51} y={53}>
         <HotspotTooltip
-          description="Overlay mode still works when ProductCard is embedded inside a pin."
-          title="Nested quick buy"
+          description="The printed pillow layers warmth and color into the otherwise neutral chair."
+          title="Solstice accent pillow"
         />
       </HotspotPin>
     </SceneFrame>
-  )
-}
-
-export function HotspotResponsiveExample() {
-  return (
-    <PreviewFrame>
-      <div className="w-[375px] max-w-full rounded-lg border border-dashed p-3">
-        <HotspotImage
-          alt={mockSceneLivingRoom.alt}
-          height={mockSceneLivingRoom.height}
-          src={mockSceneLivingRoom.src}
-          width={mockSceneLivingRoom.width}
-        >
-          <HotspotPin label="Responsive product hotspot" x={24} y={52}>
-            <div className="w-[320px]">
-              <ProductCard product={mockProductSimple} variants="none" />
-            </div>
-          </HotspotPin>
-          <HotspotPin label="Responsive tooltip hotspot" variant="dot" x={77} y={28}>
-            <HotspotTooltip
-              description="Narrow containers keep the scene scrollable instead of squeezing the image."
-              title="Horizontal overflow"
-            />
-          </HotspotPin>
-        </HotspotImage>
-      </div>
-    </PreviewFrame>
-  )
-}
-
-export function HotspotMultipleScenesExample() {
-  return (
-    <div className="grid gap-4 xl:grid-cols-2">
-      <SceneFrame className="h-full" scene={mockSceneLivingRoom}>
-        <HotspotPin label="Scene one hotspot" x={24} y={52}>
-          <HotspotTooltip
-            description="One scene can hold merch and editorial context together."
-            title="Living room scene"
-          />
-        </HotspotPin>
-      </SceneFrame>
-
-      <SceneFrame className="h-full" scene={mockSceneProductHero}>
-        <HotspotPin label="Scene two hotspot" x={55} y={54}>
-          <div className="w-[320px]">
-            <ProductCard product={mockProductWithImages} variants="none" />
-          </div>
-        </HotspotPin>
-      </SceneFrame>
-    </div>
   )
 }

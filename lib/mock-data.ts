@@ -18,33 +18,33 @@ function getMockImages(...alts: [string, ...string[]]) {
 }
 
 export const mockProductSimple: Product = {
-  id: "linden-trail-cap",
-  title: "Linden Trail Cap",
-  category: "Accessories",
+  id: "harbor-lounge-chair",
+  title: "Harbor Lounge Chair",
+  category: "Seating",
   images: [
     getMockImage(
       0,
-      "Linden Trail Cap in mustard yellow with a charcoal brim"
+      "Harbor Lounge Chair in ivory upholstery with warm oak legs"
     ),
   ],
   price: {
-    amount: 6800,
+    amount: 42900,
     currency: "USD",
   },
 }
 
 export const mockProductNew: Product = {
-  id: "meridian-resort-shirt",
-  title: "Meridian Resort Shirt",
-  category: "Menswear",
+  id: "solstice-accent-pillow",
+  title: "Solstice Accent Pillow",
+  category: "Decor",
   images: [
     getMockImage(
       1,
-      "Meridian Resort Shirt with an abstract multicolor print"
+      "Solstice Accent Pillow with an abstract print in yellow, green, coral, and blush"
     ),
   ],
   price: {
-    amount: 9200,
+    amount: 6800,
     currency: "USD",
   },
   rating: {
@@ -58,19 +58,20 @@ export const mockProductNew: Product = {
 }
 
 export const mockProductWithSale: Product = {
-  id: "alto-fleece-hoodie",
-  title: "Alto Fleece Hoodie",
-  category: "Outerwear",
+  id: "arc-floor-lamp",
+  title: "Arc Floor Lamp",
+  category: "Lighting",
   description:
-    "A heavyweight fleece hoodie with contrast sleeves, a roomy kangaroo pocket, and a soft brushed interior for cooler days.",
-  images: getMockImages(
-    "Alto Fleece Hoodie in black and bright blue",
-    "Alto Fleece Hoodie alternate product angle using the local shirt mock image",
-    "Alto Fleece Hoodie alternate product angle using the local cap mock image"
-  ),
+    "A brushed brass floor lamp with a linen shade and marble base that adds warm ambient light to living rooms and reading corners.",
+  images: [
+    getMockImage(
+      2,
+      "Arc Floor Lamp with a brushed brass stem, linen shade, and marble base"
+    ),
+  ],
   price: {
-    amount: 11900,
-    compareAt: 15900,
+    amount: 18900,
+    compareAt: 22900,
     currency: "USD",
   },
   rating: {
@@ -84,18 +85,18 @@ export const mockProductWithSale: Product = {
 }
 
 export const mockProductLongTitle: Product = {
-  id: "atelier-field-cap",
+  id: "harbor-lounge-chair-oversized",
   title:
-    "Atelier Field Cap with Contrast Brim, Embroidered Front Logo, and Structured Crown for Everyday Wear",
-  category: "Accessories",
+    "Harbor Lounge Chair with Oversized Cushions, Tailored Upholstery, and Solid Oak Legs for Layered Living Rooms",
+  category: "Seating",
   images: [
     getMockImage(
       0,
-      "Atelier Field Cap with a structured crown and contrast charcoal brim"
+      "Harbor Lounge Chair with oversized cushions and tailored ivory upholstery"
     ),
   ],
   price: {
-    amount: 14500,
+    amount: 54500,
     currency: "USD",
   },
   rating: {
@@ -105,13 +106,16 @@ export const mockProductLongTitle: Product = {
 }
 
 export const mockProductNoCategory: Product = {
-  id: "cove-camp-shirt",
-  title: "Cove Camp Shirt",
+  id: "solstice-accent-pillow-unlabeled",
+  title: "Solstice Accent Pillow",
   images: [
-    getMockImage(1, "Cove Camp Shirt with oversized abstract shapes"),
+    getMockImage(
+      1,
+      "Solstice Accent Pillow with oversized abstract shapes in warm tones"
+    ),
   ],
   price: {
-    amount: 5400,
+    amount: 6200,
     currency: "USD",
   },
   rating: {
@@ -121,19 +125,19 @@ export const mockProductNoCategory: Product = {
 }
 
 export const mockProductDetailed: Product = {
-  id: "studio-colorblock-hoodie",
-  title: "Studio Colorblock Hoodie",
-  category: "Outerwear",
+  id: "harbor-lounge-chair-signature",
+  title: "Harbor Lounge Chair Signature Edition",
+  category: "Seating",
   description:
-    "A colorblocked hoodie with a structured hood, ribbed trims, and athletic paneling designed for standout casual layering.",
+    "A tailored lounge chair with deep cushioning, oak legs, and a supportive upright silhouette designed for living rooms and reading corners.",
   images: getMockImages(
-    "Studio Colorblock Hoodie styled against a neutral backdrop",
-    "Studio Colorblock Hoodie alternate catalog image using the local shirt mock image",
-    "Studio Colorblock Hoodie alternate catalog image using the local cap mock image"
+    "Harbor Lounge Chair Signature Edition in ivory upholstery",
+    "Harbor Lounge Chair Signature Edition styled with the Solstice Accent Pillow",
+    "Harbor Lounge Chair Signature Edition staged beside the Arc Floor Lamp"
   ),
   price: {
-    amount: 13200,
-    compareAt: 16800,
+    amount: 54900,
+    compareAt: 62900,
     currency: "USD",
   },
   rating: {
@@ -144,33 +148,33 @@ export const mockProductDetailed: Product = {
     label: "Best Seller",
     variant: "default",
   },
-  href: "/products/studio-colorblock-hoodie",
+  href: "/products/harbor-lounge-chair-signature",
   variants: [
     {
-      id: "color",
-      name: "Color",
+      id: "upholstery",
+      name: "Upholstery",
       type: "swatch",
       required: true,
       options: [
         { label: "Bone", value: "bone", swatch: "#e7e2d9" },
-        { label: "Olive", value: "olive", swatch: "#5d6b4d" },
+        { label: "Sand", value: "sand", swatch: "#d4c4b2" },
       ],
     },
   ],
 }
 
 export const mockProductBrokenImage: Product = {
-  id: "nomad-weekender",
-  title: "Nomad Weekender",
-  category: "Travel",
+  id: "drift-side-table",
+  title: "Drift Side Table",
+  category: "Tables",
   images: [
     {
       src: "/mock/does-not-exist.jpg",
-      alt: "Nomad Weekender bag with intentionally broken image source",
+      alt: "Drift Side Table with intentionally broken image source",
     },
   ],
   price: {
-    amount: 18800,
+    amount: 15800,
     currency: "USD",
   },
   rating: {
@@ -180,10 +184,15 @@ export const mockProductBrokenImage: Product = {
 }
 
 export const mockProductLowRating: Product = {
-  id: "atlas-print-shirt",
-  title: "Atlas Print Shirt",
-  category: "Menswear",
-  images: [getMockImage(1, "Atlas Print Shirt with a relaxed camp collar")],
+  id: "gallery-accent-pillow",
+  title: "Gallery Accent Pillow",
+  category: "Decor",
+  images: [
+    getMockImage(
+      1,
+      "Gallery Accent Pillow with an abstract print and relaxed brushed texture"
+    ),
+  ],
   price: {
     amount: 2800,
     currency: "USD",
@@ -195,25 +204,25 @@ export const mockProductLowRating: Product = {
 }
 
 export const mockProductWithImages: Product = {
-  id: "capsule-weekend-set",
-  title: "Capsule Weekend Set",
+  id: "living-room-styling-set",
+  title: "Living Room Styling Set",
   category: "Bundles",
   images: [
     getMockImage(
       0,
-      "Capsule Weekend Set including a mustard cap with a charcoal brim"
+      "Living Room Styling Set including the Harbor Lounge Chair"
     ),
     getMockImage(
       1,
-      "Capsule Weekend Set including an abstract-print resort shirt"
+      "Living Room Styling Set including the Solstice Accent Pillow"
     ),
     getMockImage(
       2,
-      "Capsule Weekend Set including a bright blue and black hoodie"
+      "Living Room Styling Set including the Arc Floor Lamp"
     ),
   ],
   price: {
-    amount: 14900,
+    amount: 58900,
     currency: "USD",
   },
   rating: {
@@ -223,28 +232,28 @@ export const mockProductWithImages: Product = {
 }
 
 export const mockProductWithVariants: Product = {
-  id: "custom-weekend-bundle",
-  title: "Custom Weekend Bundle",
-  category: "Bundles",
+  id: "harbor-lounge-chair-custom",
+  title: "Harbor Lounge Chair Custom",
+  category: "Seating",
   description:
-    "A build-your-own weekend bundle pairing a cap, a printed shirt, and a heavyweight hoodie with customizable styling options.",
+    "A configurable lounge chair setup with upholstery, finish, and delivery options for building a polished living-room corner.",
   images: [
     getMockImage(
       0,
-      "Custom Weekend Bundle cap view with a mustard crown and charcoal brim"
+      "Harbor Lounge Chair Custom front view in ivory upholstery"
     ),
     getMockImage(
       1,
-      "Custom Weekend Bundle shirt view with an oversized abstract print"
+      "Harbor Lounge Chair Custom styled with the Solstice Accent Pillow"
     ),
     getMockImage(
       2,
-      "Custom Weekend Bundle hoodie view with bright blue sleeves"
+      "Harbor Lounge Chair Custom staged beside the Arc Floor Lamp"
     ),
   ],
   price: {
-    amount: 18900,
-    compareAt: 22900,
+    amount: 48900,
+    compareAt: 54900,
     currency: "USD",
   },
   rating: {
@@ -252,75 +261,226 @@ export const mockProductWithVariants: Product = {
     count: 214,
   },
   badge: {
-    label: "Sale",
-    variant: "sale",
+    label: "Made to Order",
+    variant: "default",
   },
   variants: [
     {
-      id: "colorway",
-      name: "Colorway",
+      id: "upholstery",
+      name: "Upholstery",
       type: "swatch",
       required: true,
       options: [
-        { label: "Sunset", value: "sunset", swatch: "#f59e0b" },
-        { label: "Oat", value: "oat", swatch: "#e7e2d9" },
-        { label: "Forest", value: "forest", swatch: "#355e3b" },
-        { label: "Night", value: "night", swatch: "#172554" },
+        { label: "Ivory", value: "ivory", swatch: "#e7e2d9" },
+        { label: "Sand", value: "sand", swatch: "#d4c4b2" },
+        { label: "Olive", value: "olive", swatch: "#7e8b72" },
+        { label: "Charcoal", value: "charcoal", swatch: "#50545a" },
       ],
     },
     {
-      id: "size",
-      name: "Size",
+      id: "leg-finish",
+      name: "Leg finish",
       type: "pills",
       required: true,
       options: [
-        { label: "S", value: "s" },
-        { label: "M", value: "m" },
-        { label: "L", value: "l" },
-        { label: "XL", value: "xl", disabled: true },
+        { label: "Oak", value: "oak" },
+        { label: "Walnut", value: "walnut" },
+        { label: "Black", value: "black" },
+        { label: "Brass", value: "brass", disabled: true },
       ],
     },
     {
-      id: "shirt-fit",
-      name: "Shirt fit",
+      id: "accent-pillow",
+      name: "Accent pillow",
       type: "select",
       options: [
-        { label: "Regular", value: "regular" },
-        { label: "Relaxed", value: "relaxed" },
-        { label: "Oversized", value: "oversized" },
+        { label: "None", value: "none" },
+        { label: "Solstice", value: "solstice" },
+        { label: "Gallery", value: "gallery" },
       ],
     },
     {
-      id: "embroidery-width",
-      name: "Embroidery width",
+      id: "seat-depth",
+      name: "Seat depth",
       type: "slider",
       sliderConfig: {
-        min: 6,
-        max: 14,
+        min: 32,
+        max: 40,
         step: 1,
-        unit: "cm",
+        unit: "in",
       },
       options: [],
     },
     {
-      id: "extras",
+      id: "add-ons",
       name: "Add-ons",
       type: "checkbox",
       options: [
-        { label: "Gift wrap", value: "gift-wrap" },
-        { label: "Spare drawcord", value: "spare-drawcord" },
-        { label: "Dust bag", value: "dust-bag" },
+        { label: "Matching ottoman", value: "matching-ottoman" },
+        { label: "Fabric protector", value: "fabric-protector" },
+        { label: "Assembly service", value: "assembly-service" },
       ],
     },
     {
-      id: "hoodie-weight",
-      name: "Hoodie weight",
+      id: "delivery",
+      name: "Delivery",
       type: "radio",
       required: true,
       options: [
-        { label: "Midweight", value: "midweight" },
-        { label: "Heavyweight", value: "heavyweight" },
-        { label: "Brushed fleece", value: "brushed-fleece" },
+        { label: "Standard", value: "standard" },
+        { label: "Room of choice", value: "room-of-choice" },
+        { label: "White glove", value: "white-glove" },
+      ],
+    },
+  ],
+}
+
+export const mockSceneChairProduct: Product = {
+  id: "harbor-lounge-chair",
+  title: "Harbor Lounge Chair",
+  category: "Seating",
+  description:
+    "A soft ivory lounge chair with squared arms, plush cushioning, and warm oak legs for relaxed living rooms.",
+  images: [
+    getMockImage(
+      0,
+      "Harbor Lounge Chair in ivory upholstery with warm oak legs"
+    ),
+  ],
+  price: {
+    amount: 42900,
+    currency: "USD",
+  },
+  rating: {
+    value: 4.8,
+    count: 94,
+  },
+}
+
+export const mockScenePillowProduct: Product = {
+  id: "solstice-accent-pillow",
+  title: "Solstice Accent Pillow",
+  category: "Decor",
+  description:
+    "An abstract printed accent pillow with warm earth tones and a soft brushed cover.",
+  images: [
+    getMockImage(
+      1,
+      "Solstice Accent Pillow with an abstract print in yellow, green, coral, and blush"
+    ),
+  ],
+  price: {
+    amount: 6800,
+    currency: "USD",
+  },
+  rating: {
+    value: 4.6,
+    count: 58,
+  },
+  badge: {
+    label: "New",
+    variant: "new",
+  },
+}
+
+export const mockSceneChairWithVariants: Product = {
+  id: "harbor-lounge-chair-custom",
+  title: "Harbor Lounge Chair",
+  category: "Seating",
+  description:
+    "Customize the Harbor Lounge Chair with upholstery, finish, and delivery options for your living room.",
+  images: [
+    getMockImage(
+      0,
+      "Harbor Lounge Chair in ivory upholstery with warm oak legs"
+    ),
+    getMockImage(
+      1,
+      "Harbor Lounge Chair styled with the Solstice Accent Pillow"
+    ),
+    getMockImage(
+      2,
+      "Harbor Lounge Chair staged beside a brass floor lamp"
+    ),
+  ],
+  price: {
+    amount: 48900,
+    compareAt: 54900,
+    currency: "USD",
+  },
+  rating: {
+    value: 4.9,
+    count: 126,
+  },
+  badge: {
+    label: "Best Seller",
+    variant: "default",
+  },
+  variants: [
+    {
+      id: "upholstery",
+      name: "Upholstery",
+      type: "swatch",
+      required: true,
+      options: [
+        { label: "Ivory", value: "ivory", swatch: "#e6ddd3" },
+        { label: "Sand", value: "sand", swatch: "#d4c4b2" },
+        { label: "Olive", value: "olive", swatch: "#7e8b72" },
+        { label: "Charcoal", value: "charcoal", swatch: "#50545a" },
+      ],
+    },
+    {
+      id: "leg-finish",
+      name: "Leg finish",
+      type: "pills",
+      required: true,
+      options: [
+        { label: "Oak", value: "oak" },
+        { label: "Walnut", value: "walnut" },
+        { label: "Black", value: "black" },
+      ],
+    },
+    {
+      id: "cushion-fill",
+      name: "Cushion fill",
+      type: "select",
+      options: [
+        { label: "Standard foam", value: "foam" },
+        { label: "Feather blend", value: "feather-blend" },
+        { label: "Performance fill", value: "performance-fill" },
+      ],
+    },
+    {
+      id: "seat-depth",
+      name: "Seat depth",
+      type: "slider",
+      sliderConfig: {
+        min: 32,
+        max: 40,
+        step: 1,
+        unit: "in",
+      },
+      options: [],
+    },
+    {
+      id: "add-ons",
+      name: "Add-ons",
+      type: "checkbox",
+      options: [
+        { label: "Matching ottoman", value: "ottoman" },
+        { label: "Fabric protector", value: "fabric-protector" },
+        { label: "White glove assembly", value: "white-glove" },
+      ],
+    },
+    {
+      id: "delivery",
+      name: "Delivery",
+      type: "radio",
+      required: true,
+      options: [
+        { label: "Standard", value: "standard" },
+        { label: "Room of choice", value: "room-of-choice" },
+        { label: "White glove", value: "white-glove" },
       ],
     },
   ],
@@ -378,7 +538,7 @@ export const mockDisabledQuickOptionVariants: VariantSet = [
     ? {
         ...swatchVariant,
         options: swatchVariant.options.map((option) =>
-          option.value === "night" || option.value === "forest"
+          option.value === "charcoal" || option.value === "olive"
             ? { ...option, disabled: true }
             : option
         ),
@@ -388,7 +548,7 @@ export const mockDisabledQuickOptionVariants: VariantSet = [
     ? {
         ...pillsVariant,
         options: pillsVariant.options.map((option) =>
-          option.value === "l" || option.value === "xl"
+          option.value === "black" || option.value === "brass"
             ? { ...option, disabled: true }
             : option
         ),
@@ -398,7 +558,7 @@ export const mockDisabledQuickOptionVariants: VariantSet = [
     ? {
         ...selectVariant,
         options: selectVariant.options.map((option) =>
-          option.value === "oversized" ? { ...option, disabled: true } : option
+          option.value === "gallery" ? { ...option, disabled: true } : option
         ),
       }
     : undefined,
@@ -406,7 +566,9 @@ export const mockDisabledQuickOptionVariants: VariantSet = [
     ? {
         ...checkboxVariant,
         options: checkboxVariant.options.map((option) =>
-          option.value === "dust-bag" ? { ...option, disabled: true } : option
+          option.value === "assembly-service"
+            ? { ...option, disabled: true }
+            : option
         ),
       }
     : undefined,
@@ -414,7 +576,7 @@ export const mockDisabledQuickOptionVariants: VariantSet = [
     ? {
         ...radioVariant,
         options: radioVariant.options.map((option) =>
-          option.value === "brushed-fleece"
+          option.value === "white-glove"
             ? { ...option, disabled: true }
             : option
         ),
@@ -442,36 +604,37 @@ export type MockScene = {
 }
 
 const defaultSceneSize = {
-  width: 1440,
+  width: 640,
   height: 960,
 } as const
 
 export const mockSceneLivingRoom: MockScene = {
   id: "living-room",
-  src: "/mock/scene-living-room.jpg",
-  alt: "Living room lifestyle scene for hotspot demos",
+  src: "/mock/product-scene.jpg",
+  alt: "Living room scene with a lounge chair, accent pillow, floor lamp, and framed wall art",
   ...defaultSceneSize,
   pins: [
     {
-      id: "living-room-product-simple",
+      id: "living-room-chair",
+      x: 51,
+      y: 67,
+      content: { kind: "product", product: mockSceneChairProduct },
+    },
+    {
+      id: "living-room-pillow",
+      x: 51,
+      y: 53,
+      content: { kind: "product", product: mockScenePillowProduct },
+    },
+    {
+      id: "living-room-lamp",
       x: 24,
-      y: 52,
-      content: { kind: "product", product: mockProductSimple },
-    },
-    {
-      id: "living-room-product-bundle",
-      x: 56,
-      y: 60,
-      content: { kind: "product", product: mockProductWithImages },
-    },
-    {
-      id: "living-room-tooltip",
-      x: 77,
-      y: 28,
+      y: 18,
       content: {
         kind: "tooltip",
-        title: "Oak side table",
-        description: "Solid oak table styling the scene with warm tonal contrast.",
+        title: "Arc floor lamp",
+        description:
+          "Brushed brass floor lamp with a linen shade and a weighted marble base.",
       },
     },
   ],
@@ -479,39 +642,39 @@ export const mockSceneLivingRoom: MockScene = {
 
 export const mockSceneProductHero: MockScene = {
   id: "product-hero",
-  src: "/mock/scene-product-hero.jpg",
-  alt: "Editorial product hero scene for hotspot demos",
+  src: "/mock/product-scene.jpg",
+  alt: "Living room scene with a lounge chair, accent pillow, floor lamp, and framed wall art",
   ...defaultSceneSize,
   pins: [
     {
-      id: "product-hero-fit",
-      x: 36,
-      y: 28,
+      id: "product-hero-chair",
+      x: 51,
+      y: 67,
       content: {
         kind: "tooltip",
-        title: "Relaxed fit",
+        title: "Harbor lounge chair",
         description:
-          "Cut with extra ease through the shoulders and body for casual layering.",
+          "Squared arms and deep cushioning make the chair the focal point of the room.",
       },
     },
     {
-      id: "product-hero-fabric",
-      x: 55,
-      y: 54,
+      id: "product-hero-lamp",
+      x: 24,
+      y: 18,
       content: {
         kind: "tooltip",
-        title: "Printed poplin",
+        title: "Arc floor lamp",
         description:
-          "Lightweight cotton poplin with a washed finish and a soft handfeel.",
+          "A slim brass silhouette adds warm task lighting without taking over the scene.",
       },
     },
     {
       id: "product-hero-link",
-      x: 74,
-      y: 74,
+      x: 82,
+      y: 24,
       content: {
         kind: "link",
-        label: "See fabric details",
+        label: "See the full room edit",
         href: "/docs/components/product-card",
       },
     },
@@ -520,34 +683,34 @@ export const mockSceneProductHero: MockScene = {
 
 export const mockSceneMixedContent: MockScene = {
   id: "mixed-content",
-  src: "/mock/scene-mixed-content.jpg",
-  alt: "Mixed editorial scene for product, tooltip, and link hotspot demos",
+  src: "/mock/product-scene.jpg",
+  alt: "Living room scene with a lounge chair, accent pillow, floor lamp, and framed wall art",
   ...defaultSceneSize,
   pins: [
     {
       id: "mixed-product",
-      x: 22,
-      y: 64,
-      content: { kind: "product", product: mockProductWithVariants },
+      x: 51,
+      y: 67,
+      content: { kind: "product", product: mockSceneChairWithVariants },
     },
     {
       id: "mixed-tooltip",
-      x: 52,
-      y: 32,
+      x: 24,
+      y: 18,
       content: {
         kind: "tooltip",
-        title: "Brushed fleece interior",
+        title: "Arc floor lamp",
         description:
-          "Soft-loop lining keeps warmth high without adding bulk to the silhouette.",
+          "Brushed brass and linen bring a softer, editorial feel to the seating corner.",
       },
     },
     {
       id: "mixed-link",
-      x: 79,
-      y: 20,
+      x: 82,
+      y: 24,
       content: {
         kind: "link",
-        label: "Open the lookbook",
+        label: "Open the room guide",
         href: "/docs/components/hotspot-image",
       },
     },

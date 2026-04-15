@@ -6,10 +6,8 @@ description: Shoppable scenes with positioned pins, popovers, and embeddable pro
 import {
   HotspotBasicSceneExample,
   HotspotContentTypesExample,
-  HotspotMultipleScenesExample,
   HotspotOverlayInPinExample,
   HotspotPinVariantsExample,
-  HotspotResponsiveExample,
 } from "@/components/docs/hotspot-image-examples"
 
 export const hotspotImageProps = {
@@ -149,10 +147,10 @@ export function Example() {
       src={mockSceneLivingRoom.src}
       width={mockSceneLivingRoom.width}
     >
-      <HotspotPin x={24} y={52}>
+      <HotspotPin x={24} y={18}>
         <HotspotTooltip
-          description="Solid oak table styling the scene with warm tonal contrast."
-          title="Oak side table"
+          description="Brushed brass floor lamp with a linen shade and a weighted marble base."
+          title="Arc floor lamp"
         />
       </HotspotPin>
     </HotspotImage>
@@ -185,11 +183,11 @@ export function Example() {
       src={mockSceneProductHero.src}
       width={mockSceneProductHero.width}
     >
-      <HotspotPin variant="plus" x={36} y={28}>
-        <HotspotTooltip description="Default plus pin." title="Plus pin" />
+      <HotspotPin variant="plus" x={51} y={67}>
+        <HotspotTooltip description="Primary product pin on the lounge chair." title="Harbor lounge chair" />
       </HotspotPin>
-      <HotspotPin variant="dot" x={74} y={74}>
-        <HotspotTooltip description="Compact dot pin." title="Dot pin" />
+      <HotspotPin variant="dot" x={24} y={18}>
+        <HotspotTooltip description="Secondary detail pin on the floor lamp." title="Arc floor lamp" />
       </HotspotPin>
     </HotspotImage>
   )
@@ -213,7 +211,7 @@ import { HotspotLink } from "@/components/ui/hotspot-link"
 import { HotspotPin } from "@/components/ui/hotspot-pin"
 import { HotspotTooltip } from "@/components/ui/hotspot-tooltip"
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductSimple, mockSceneMixedContent } from "@/lib/mock-data"
+import { mockSceneChairProduct, mockSceneMixedContent } from "@/lib/mock-data"
 
 export function Example() {
   return (
@@ -223,18 +221,18 @@ export function Example() {
       src={mockSceneMixedContent.src}
       width={mockSceneMixedContent.width}
     >
-      <HotspotPin x={52} y={32}>
+      <HotspotPin x={24} y={18}>
         <HotspotTooltip
-          description="Soft-loop lining keeps warmth high without adding bulk."
-          title="Brushed fleece interior"
+          description="Brushed brass and linen bring a softer, editorial feel to the seating corner."
+          title="Arc floor lamp"
         />
       </HotspotPin>
-      <HotspotPin variant="dot" x={79} y={20}>
-        <HotspotLink href="/docs/components/product-card" label="Open the lookbook" />
+      <HotspotPin variant="dot" x={82} y={24}>
+        <HotspotLink href="/docs/components/product-card" label="See the full room edit" />
       </HotspotPin>
-      <HotspotPin x={22} y={64}>
+      <HotspotPin x={51} y={67}>
         <div className="w-[320px]">
-          <ProductCard product={mockProductSimple} variants="none" />
+          <ProductCard product={mockSceneChairProduct} variants="none" />
         </div>
       </HotspotPin>
     </HotspotImage>
@@ -257,7 +255,7 @@ export function Example() {
 import { HotspotImage } from "@/components/ui/hotspot-image"
 import { HotspotPin } from "@/components/ui/hotspot-pin"
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductWithVariants, mockSceneMixedContent } from "@/lib/mock-data"
+import { mockSceneChairWithVariants, mockSceneMixedContent } from "@/lib/mock-data"
 
 export function Example() {
   return (
@@ -267,94 +265,16 @@ export function Example() {
       src={mockSceneMixedContent.src}
       width={mockSceneMixedContent.width}
     >
-      <HotspotPin x={22} y={64}>
+      <HotspotPin x={51} y={67}>
         <div className="w-[320px]">
           <ProductCard
             onAddToCart={() => {}}
-            product={mockProductWithVariants}
+            product={mockSceneChairWithVariants}
             variants="overlay"
           />
         </div>
       </HotspotPin>
     </HotspotImage>
-  )
-}
-```
-
-  </Tab>
-</Tabs>
-
-### Mobile-width responsiveness
-
-<Tabs items={["Preview", "Code"]}>
-  <Tab>
-    <HotspotResponsiveExample />
-  </Tab>
-  <Tab>
-
-```tsx
-import { HotspotImage } from "@/components/ui/hotspot-image"
-import { HotspotPin } from "@/components/ui/hotspot-pin"
-import { HotspotTooltip } from "@/components/ui/hotspot-tooltip"
-import { mockSceneLivingRoom } from "@/lib/mock-data"
-
-export function Example() {
-  return (
-    <div className="w-[375px] max-w-full">
-      <HotspotImage
-        alt={mockSceneLivingRoom.alt}
-        height={mockSceneLivingRoom.height}
-        src={mockSceneLivingRoom.src}
-        width={mockSceneLivingRoom.width}
-      >
-        <HotspotPin variant="dot" x={77} y={28}>
-          <HotspotTooltip
-            description="Narrow containers stay horizontally scrollable."
-            title="Horizontal overflow"
-          />
-        </HotspotPin>
-      </HotspotImage>
-    </div>
-  )
-}
-```
-
-  </Tab>
-</Tabs>
-
-### Multiple scenes side by side
-
-<Tabs items={["Preview", "Code"]}>
-  <Tab>
-    <HotspotMultipleScenesExample />
-  </Tab>
-  <Tab>
-
-```tsx
-import { HotspotImage } from "@/components/ui/hotspot-image"
-import { HotspotPin } from "@/components/ui/hotspot-pin"
-import { mockSceneLivingRoom, mockSceneProductHero } from "@/lib/mock-data"
-
-export function Example() {
-  return (
-    <div className="grid gap-4 xl:grid-cols-2">
-      <HotspotImage
-        alt={mockSceneLivingRoom.alt}
-        height={mockSceneLivingRoom.height}
-        src={mockSceneLivingRoom.src}
-        width={mockSceneLivingRoom.width}
-      >
-        <HotspotPin x={24} y={52}>...</HotspotPin>
-      </HotspotImage>
-      <HotspotImage
-        alt={mockSceneProductHero.alt}
-        height={mockSceneProductHero.height}
-        src={mockSceneProductHero.src}
-        width={mockSceneProductHero.width}
-      >
-        <HotspotPin x={55} y={54}>...</HotspotPin>
-      </HotspotImage>
-    </div>
   )
 }
 ```

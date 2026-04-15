@@ -9,7 +9,7 @@ export type PreviewFrameProps = {
 
 export function PreviewFrame({ children, className }: PreviewFrameProps) {
   return (
-    <div className="flex w-full justify-center px-4 py-4 sm:px-6 sm:py-6">
+    <div className="not-prose flex w-full justify-center px-4 py-4 sm:px-6 sm:py-6">
       <div className={cn("w-full", className)}>{children}</div>
     </div>
   )
