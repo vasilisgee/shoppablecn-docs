@@ -1,5 +1,8 @@
 import { HomeLayout } from "fumadocs-ui/layouts/home"
 
+import { HomeHeader } from "@/components/home-header"
+import { HomeNavTitle } from "@/components/home-nav-title"
+
 const libraryRepoUrl = "https://github.com/vasilisgee/shoppablecn"
 
 export default function Layout({ children }: LayoutProps<"/">) {
@@ -22,6 +25,10 @@ export default function Layout({ children }: LayoutProps<"/">) {
       }}
       searchToggle={{
         enabled: false,
+      }}
+      slots={{
+        header: HomeHeader,
+        navTitle: HomeNavTitle,
       }}
       themeSwitch={{
         enabled: true,

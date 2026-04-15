@@ -2,7 +2,6 @@ import Link from "next/link"
 import {
   Accessibility,
   ArrowRight,
-  Copy,
   MousePointerClick,
   Package,
   Puzzle,
@@ -75,12 +74,9 @@ export default function HomePage() {
               Built for teams that want to move fast without giving up control.
             </h2>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-2">
             <Card className="h-full justify-between">
-              <CardHeader className="space-y-4">
-                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
-                  <Copy aria-hidden="true" className="size-4" />
-                </div>
+              <CardHeader className="space-y-3">
                 <div className="space-y-2">
                   <CardTitle>Copy &amp; Paste</CardTitle>
                   <CardDescription>
@@ -94,41 +90,8 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="h-full">
-              <CardHeader className="space-y-4">
-                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
-                  <ShieldCheck aria-hidden="true" className="size-4" />
-                </div>
-                <div className="space-y-2">
-                  <CardTitle>Type Safe</CardTitle>
-                  <CardDescription>
-                    Written in TypeScript with complete type definitions for
-                    every prop and callback.
-                  </CardDescription>
-                </div>
-              </CardHeader>
-            </Card>
-
-            <Card className="h-full">
-              <CardHeader className="space-y-4">
-                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
-                  <Accessibility aria-hidden="true" className="size-4" />
-                </div>
-                <div className="space-y-2">
-                  <CardTitle>Accessible by Default</CardTitle>
-                  <CardDescription>
-                    WAI-ARIA compliant. Full keyboard navigation. Screen reader
-                    tested.
-                  </CardDescription>
-                </div>
-              </CardHeader>
-            </Card>
-
-            <Card className="h-full">
-              <CardHeader className="space-y-4">
-                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
-                  <Puzzle aria-hidden="true" className="size-4" />
-                </div>
+            <Card className="h-full justify-between">
+              <CardHeader className="space-y-3">
                 <div className="space-y-2">
                   <CardTitle>Shadcn Native</CardTitle>
                   <CardDescription>
@@ -137,6 +100,45 @@ export default function HomePage() {
                   </CardDescription>
                 </div>
               </CardHeader>
+              <CardContent className="mt-auto pt-2">
+                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
+                  <Puzzle aria-hidden="true" className="size-4" />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="h-full justify-between">
+              <CardHeader className="space-y-3">
+                <div className="space-y-2">
+                  <CardTitle>Type Safe</CardTitle>
+                  <CardDescription>
+                    Written in TypeScript with complete type definitions for
+                    every prop and callback.
+                  </CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent className="mt-auto pt-2">
+                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
+                  <ShieldCheck aria-hidden="true" className="size-4" />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="h-full justify-between">
+              <CardHeader className="space-y-3">
+                <div className="space-y-2">
+                  <CardTitle>Accessible by Default</CardTitle>
+                  <CardDescription>
+                    WAI-ARIA compliant. Full keyboard navigation. Screen reader
+                    tested.
+                  </CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent className="mt-auto pt-2">
+                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
+                  <Accessibility aria-hidden="true" className="size-4" />
+                </div>
+              </CardContent>
             </Card>
           </div>
         </div>
@@ -272,21 +274,11 @@ export default function HomePage() {
       </section>
 
       <footer className="border-t">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>shoppablecn - MIT License</p>
-          <div className="flex items-center gap-4">
-            <Link className="hover:text-foreground" href="/docs">
-              Docs
-            </Link>
-            <Link
-              className="hover:text-foreground"
-              href={libraryRepoUrl}
-              rel="noreferrer"
-              target="_blank"
-            >
-              GitHub
-            </Link>
-          </div>
+        <div className="mx-auto flex w-full max-w-6xl justify-center px-4 py-6 text-center text-sm text-muted-foreground sm:px-6 lg:px-8">
+          <p>
+            © {new Date().getFullYear()} shoppablecn. Documentation site for
+            the shoppablecn component library.
+          </p>
         </div>
       </footer>
     </main>
