@@ -1,10 +1,9 @@
 {
   "title": "Docs",
   "pages": [
-    "installation",
     "index",
-    "product-card",
-    "quick-options",
-    "hotspot-image"
+    "installation",
+    "---UI Components---",
+    "...components"
   ]
 }

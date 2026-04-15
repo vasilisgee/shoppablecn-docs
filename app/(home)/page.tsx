@@ -5,7 +5,6 @@ import {
   MousePointerClick,
   Package,
   Puzzle,
-  ShieldCheck,
   SlidersHorizontal,
 } from "lucide-react"
 
@@ -42,7 +41,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               className={cn(buttonVariants({ size: "lg" }))}
-              href="/docs/product-card"
+              href="/docs/components/product-card"
             >
               Browse Components
               <ArrowRight aria-hidden="true" />
@@ -74,8 +73,8 @@ export default function HomePage() {
               Built for teams that want to move fast without giving up control.
             </h2>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <Card className="h-full justify-between">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <Card className="h-full justify-between md:col-span-2 lg:col-span-2">
               <CardHeader className="space-y-3">
                 <div className="space-y-2">
                   <CardTitle>Copy &amp; Paste</CardTitle>
@@ -103,23 +102,6 @@ export default function HomePage() {
               <CardContent className="mt-auto pt-2">
                 <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
                   <Puzzle aria-hidden="true" className="size-4" />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="h-full justify-between">
-              <CardHeader className="space-y-3">
-                <div className="space-y-2">
-                  <CardTitle>Type Safe</CardTitle>
-                  <CardDescription>
-                    Written in TypeScript with complete type definitions for
-                    every prop and callback.
-                  </CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="mt-auto pt-2">
-                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
-                  <ShieldCheck aria-hidden="true" className="size-4" />
                 </div>
               </CardContent>
             </Card>
@@ -158,7 +140,7 @@ export default function HomePage() {
           <div className="grid gap-4 md:grid-cols-3">
             <Link
               className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-              href="/docs/product-card"
+              href="/docs/components/product-card"
             >
               <Card className="h-full justify-between transition-colors hover:bg-muted/30">
                 <CardHeader className="space-y-4">
@@ -185,7 +167,7 @@ export default function HomePage() {
 
             <Link
               className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-              href="/docs/quick-options"
+              href="/docs/components/quick-options"
             >
               <Card className="h-full justify-between transition-colors hover:bg-muted/30">
                 <CardHeader className="space-y-4">
@@ -211,7 +193,7 @@ export default function HomePage() {
 
             <Link
               className="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-              href="/docs/hotspot-image"
+              href="/docs/components/hotspot-image"
             >
               <Card className="h-full justify-between transition-colors hover:bg-muted/30">
                 <CardHeader className="space-y-4">
@@ -252,7 +234,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               className={cn(buttonVariants({ size: "lg" }))}
-              href="/docs/product-card"
+              href="/docs/components/product-card"
             >
               Get Started
             </Link>

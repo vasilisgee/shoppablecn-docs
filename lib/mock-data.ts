@@ -512,7 +512,7 @@ export const mockSceneProductHero: MockScene = {
       content: {
         kind: "link",
         label: "See fabric details",
-        href: "/docs/product-card",
+        href: "/docs/components/product-card",
       },
     },
   ],
@@ -548,7 +548,7 @@ export const mockSceneMixedContent: MockScene = {
       content: {
         kind: "link",
         label: "Open the lookbook",
-        href: "/docs/hotspot-image",
+        href: "/docs/components/hotspot-image",
       },
     },
   ],

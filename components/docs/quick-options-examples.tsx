@@ -41,7 +41,7 @@ function QuickOptionsSandbox({
   const [open, setOpen] = React.useState(false)
 
   return (
-    <PreviewFrame className={className}>
+    <PreviewFrame className={cn("max-w-md", className)}>
       <div className="relative min-h-[420px] overflow-hidden rounded-lg border bg-background">
         <div className="flex h-full min-h-[420px] flex-col justify-between p-6">
           <div className="space-y-3">
@@ -182,7 +182,7 @@ export function QuickOptionsTriggerPatternsExample() {
   const [open, setOpen] = React.useState(false)
 
   return (
-    <PreviewFrame>
+    <PreviewFrame className="max-w-md">
       <div className="relative min-h-[420px] overflow-hidden rounded-lg border bg-background">
         <div className="flex h-full min-h-[420px] flex-col justify-between p-6">
           <div className="space-y-3">

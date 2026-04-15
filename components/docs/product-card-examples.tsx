@@ -103,7 +103,7 @@ export function ProductCardSlideshowExample() {
 export function ProductCardSlideshowControlsExample() {
   return (
     <PreviewFrame>
-      <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 lg:grid-cols-2">
         <ProductCard product={mockProductWithImages} slideshowControls="both" />
         <ProductCard
           product={mockProductWithImages}

@@ -107,7 +107,7 @@ export function HotspotContentTypesExample() {
         />
       </HotspotPin>
       <HotspotPin label="Link content hotspot" variant="dot" x={79} y={20}>
-        <HotspotLink href="/docs/product-card" label="Open the lookbook" />
+        <HotspotLink href="/docs/components/product-card" label="Open the lookbook" />
       </HotspotPin>
       <HotspotPin label="Product card content hotspot" x={22} y={64}>
         <div className="w-[320px]">
