@@ -1,0 +1,402 @@
+---
+title: QuickOptions
+description: Slide-up variant selection overlays built for fast quick-buy interactions.
+---
+
+import {
+  QuickOptionsAllVariantsExample,
+  QuickOptionsCheckboxExample,
+  QuickOptionsDisabledOptionsExample,
+  QuickOptionsPillsExample,
+  QuickOptionsRadioExample,
+  QuickOptionsRequiredValidationExample,
+  QuickOptionsSelectExample,
+  QuickOptionsSliderExample,
+  QuickOptionsSwatchExample,
+  QuickOptionsTriggerPatternsExample,
+} from "@/components/docs/quick-options-examples"
+
+export const quickOptionsProps = {
+  variants: {
+    type: <code>ProductVariant[]</code>,
+    required: true,
+    description: "The option groups rendered inside the overlay.",
+  },
+  open: {
+    type: <code>boolean</code>,
+    required: true,
+    description: "Controlled open state for the overlay.",
+  },
+  onOpenChange: {
+    type: <code>(open: boolean) =&gt; void</code>,
+    required: true,
+    description: "Called when the overlay should open or close.",
+  },
+  onAddToCart: {
+    type: <code>(selected: SelectedVariants) =&gt; void</code>,
+    required: true,
+    description: "Receives the selected variant payload when the primary action succeeds.",
+  },
+  addToCartLabel: {
+    type: <code>string</code>,
+    default: <code>"Add to cart"</code>,
+    description: "Optional label override for the submit button.",
+  },
+  className: {
+    type: <code>string</code>,
+    description: "Optional className applied to the overlay container.",
+  },
+}
+
+# QuickOptions
+
+QuickOptions is the fast path to variant selection. It slides over the product
+surface instead of sending shoppers to a full product page, which makes it a
+good fit for listing grids, recommendation modules, and shoppable scenes.
+
+## Installation
+
+```bash
+npx shadcn@latest add @shoppablecn/quick-options
+```
+
+## Usage
+
+QuickOptions is a controlled component. You decide what opens it and what to do
+with the selected variant payload once the shopper confirms.
+
+### Swatch
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsSwatchExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { QuickOptions } from "@/components/ui/quick-options"
+import { mockSwatchOnlyVariants } from "@/lib/mock-data"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)} type="button">
+        Open quick options
+      </button>
+      <QuickOptions
+        onAddToCart={() => setOpen(false)}
+        onOpenChange={setOpen}
+        open={open}
+        variants={mockSwatchOnlyVariants}
+      />
+    </>
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Pills
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsPillsExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { QuickOptions } from "@/components/ui/quick-options"
+import { mockPillsOnlyVariants } from "@/lib/mock-data"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <QuickOptions
+      onAddToCart={() => setOpen(false)}
+      onOpenChange={setOpen}
+      open={open}
+      variants={mockPillsOnlyVariants}
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Select
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsSelectExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { QuickOptions } from "@/components/ui/quick-options"
+import { mockSelectOnlyVariants } from "@/lib/mock-data"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <QuickOptions
+      onAddToCart={() => setOpen(false)}
+      onOpenChange={setOpen}
+      open={open}
+      variants={mockSelectOnlyVariants}
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Slider
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsSliderExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { QuickOptions } from "@/components/ui/quick-options"
+import { mockSliderOnlyVariants } from "@/lib/mock-data"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <QuickOptions
+      onAddToCart={() => setOpen(false)}
+      onOpenChange={setOpen}
+      open={open}
+      variants={mockSliderOnlyVariants}
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Checkbox
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsCheckboxExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { QuickOptions } from "@/components/ui/quick-options"
+import { mockCheckboxOnlyVariants } from "@/lib/mock-data"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <QuickOptions
+      onAddToCart={() => setOpen(false)}
+      onOpenChange={setOpen}
+      open={open}
+      variants={mockCheckboxOnlyVariants}
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Radio
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsRadioExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { QuickOptions } from "@/components/ui/quick-options"
+import { mockRadioOnlyVariants } from "@/lib/mock-data"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <QuickOptions
+      onAddToCart={() => setOpen(false)}
+      onOpenChange={setOpen}
+      open={open}
+      variants={mockRadioOnlyVariants}
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### All six combined
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsAllVariantsExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { QuickOptions } from "@/components/ui/quick-options"
+import { mockAllQuickOptionVariants } from "@/lib/mock-data"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <QuickOptions
+      onAddToCart={() => setOpen(false)}
+      onOpenChange={setOpen}
+      open={open}
+      variants={mockAllQuickOptionVariants}
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Required field validation
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsRequiredValidationExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { QuickOptions } from "@/components/ui/quick-options"
+import { mockAllQuickOptionVariants } from "@/lib/mock-data"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <QuickOptions
+      onAddToCart={() => setOpen(false)}
+      onOpenChange={setOpen}
+      open={open}
+      variants={mockAllQuickOptionVariants}
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Disabled options
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsDisabledOptionsExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { QuickOptions } from "@/components/ui/quick-options"
+import { mockDisabledQuickOptionVariants } from "@/lib/mock-data"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <QuickOptions
+      onAddToCart={() => setOpen(false)}
+      onOpenChange={setOpen}
+      open={open}
+      variants={mockDisabledQuickOptionVariants}
+    />
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Trigger patterns
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsTriggerPatternsExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { Button } from "@/components/ui/button"
+import { QuickOptions } from "@/components/ui/quick-options"
+import { mockAllQuickOptionVariants } from "@/lib/mock-data"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)} type="button">
+        Quick Buy
+      </Button>
+      <QuickOptions
+        onAddToCart={() => setOpen(false)}
+        onOpenChange={setOpen}
+        open={open}
+        variants={mockAllQuickOptionVariants}
+      />
+    </>
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+## Props
+
+<TypeTable type={quickOptionsProps} />
+
+## Accessibility
+
+- Focus moves into the overlay on open and returns to the trigger when it closes.
+- Escape closes the overlay.
+- Required state is reflected in the disabled state of the submit action.
+- Radix-based controls expose the expected semantics for screen readers.
+
+## Related
+
+- [ProductCard](/docs/product-card) uses QuickOptions for overlay mode.
