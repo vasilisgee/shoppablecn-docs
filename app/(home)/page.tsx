@@ -1,7 +1,22 @@
 import Link from "next/link"
-import { ArrowRight, Github } from "lucide-react"
+import {
+  Accessibility,
+  ArrowRight,
+  Copy,
+  Github,
+  Puzzle,
+  ShieldCheck,
+} from "lucide-react"
 
 import { buttonVariants } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { InstallCommand } from "@/components/install-command"
 import { cn } from "@/lib/utils"
 
 const libraryRepoUrl = "https://github.com/vasilisgee/shoppablecn"
@@ -45,6 +60,83 @@ export default function HomePage() {
               <Github aria-hidden="true" />
               Star on GitHub
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t bg-muted/20">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-20 sm:px-6 md:py-28 lg:px-8">
+          <div className="max-w-2xl space-y-3">
+            <p className="text-sm font-medium text-muted-foreground">
+              Everything you need to ship
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              Built for teams that want to move fast without giving up control.
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <Card className="h-full justify-between">
+              <CardHeader className="space-y-4">
+                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
+                  <Copy aria-hidden="true" className="size-4" />
+                </div>
+                <div className="space-y-2">
+                  <CardTitle>Copy &amp; Paste</CardTitle>
+                  <CardDescription>
+                    No npm install required. Install via shadcn CLI and own the
+                    code forever.
+                  </CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-2">
+                <InstallCommand command="npx shadcn@latest add @shoppablecn/product-card" />
+              </CardContent>
+            </Card>
+
+            <Card className="h-full">
+              <CardHeader className="space-y-4">
+                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
+                  <ShieldCheck aria-hidden="true" className="size-4" />
+                </div>
+                <div className="space-y-2">
+                  <CardTitle>Type Safe</CardTitle>
+                  <CardDescription>
+                    Written in TypeScript with complete type definitions for
+                    every prop and callback.
+                  </CardDescription>
+                </div>
+              </CardHeader>
+            </Card>
+
+            <Card className="h-full">
+              <CardHeader className="space-y-4">
+                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
+                  <Accessibility aria-hidden="true" className="size-4" />
+                </div>
+                <div className="space-y-2">
+                  <CardTitle>Accessible by Default</CardTitle>
+                  <CardDescription>
+                    WAI-ARIA compliant. Full keyboard navigation. Screen reader
+                    tested.
+                  </CardDescription>
+                </div>
+              </CardHeader>
+            </Card>
+
+            <Card className="h-full">
+              <CardHeader className="space-y-4">
+                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
+                  <Puzzle aria-hidden="true" className="size-4" />
+                </div>
+                <div className="space-y-2">
+                  <CardTitle>Shadcn Native</CardTitle>
+                  <CardDescription>
+                    Built entirely on shadcn/ui primitives. Fits any shadcn
+                    project instantly.
+                  </CardDescription>
+                </div>
+              </CardHeader>
+            </Card>
           </div>
         </div>
       </section>
