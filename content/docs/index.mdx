@@ -1,13 +1,38 @@
 ---
-title: Hello World
-description: Your first document
+title: Introduction
+description: What shoppablecn is, what it includes, and the principles behind the library.
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+shoppablecn is a collection of e-commerce UI primitives distributed through the
+shadcn registry. It is built for teams that want to ship polished shopping
+interfaces quickly without giving up ownership of the code they ship.
 
-## What is Next?
+Each component installs directly into your project, keeps the same shadcn
+patterns you already use, and stays easy to customize because the source lives
+with the rest of your application. There is no separate package API to wrap,
+fight, or wait on.
 
-<Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
-</Cards>
+## What's included
+
+- **ProductCard**: flexible product cards with three layouts, three variant
+  modes, and built-in image slideshow support.
+- **QuickOptions**: a quick-buy overlay with six option types for fast variant
+  selection.
+- **HotspotImage**: shoppable scenes with positioned pins that can open
+  product cards, marketing tooltips, or links.
+
+## Design principles
+
+- **Shadcn-native**: built on shadcn primitives and theme tokens so the
+  components sit naturally inside existing projects.
+- **Accessibility-first**: keyboard navigation, focus management, and ARIA
+  support are treated as part of the component contract.
+- **No unnecessary dependencies**: the library stays close to the shadcn and
+  Radix stack you likely already have.
+- **TypeScript throughout**: props, callbacks, and shared data types are all
+  typed end-to-end.
+
+## Next step
+
+Start with the [Installation](/docs/installation) page, then jump into the
+component docs that match the UI you want to build first.
