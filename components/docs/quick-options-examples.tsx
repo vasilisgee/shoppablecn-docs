@@ -45,9 +45,6 @@ function QuickOptionsSandbox({
       <div className="relative min-h-[420px] overflow-hidden rounded-lg border bg-background">
         <div className="flex h-full min-h-[420px] flex-col justify-between p-6">
           <div className="space-y-3">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              QuickOptions
-            </p>
             <div className="space-y-2">
               <h3 className="text-lg font-semibold">{title}</h3>
               <p className="max-w-md text-sm text-muted-foreground">
