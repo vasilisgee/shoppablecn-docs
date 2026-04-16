@@ -95,10 +95,22 @@ The minimal setup is a `product` object and the `ProductCard` component.
 
 ```tsx
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductSimple } from "@/lib/mock-data"
+import type { Product } from "@/components/ui/types"
 
 export function Example() {
-  return <ProductCard product={mockProductSimple} />
+  const product = {
+    id: "chair-001",
+    title: "Harbor Lounge Chair",
+    images: [
+      {
+        src: "/products/harbor-lounge-chair.jpg",
+        alt: "Harbor Lounge Chair in oat boucle",
+      },
+    ],
+    price: { amount: 64900, currency: "USD" },
+  } satisfies Product
+
+  return <ProductCard product={product} />
 }
 ```
 
@@ -117,13 +129,26 @@ export function Example() {
 
 ```tsx
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductSimple } from "@/lib/mock-data"
+import type { Product } from "@/components/ui/types"
 
 export function Example() {
+  const product = {
+    id: "chair-001",
+    title: "Harbor Lounge Chair",
+    category: "Seating",
+    images: [
+      {
+        src: "/products/harbor-lounge-chair.jpg",
+        alt: "Harbor Lounge Chair in oat boucle",
+      },
+    ],
+    price: { amount: 64900, currency: "USD" },
+  } satisfies Product
+
   return (
     <ProductCard
       layout="vertical"
-      product={mockProductSimple}
+      product={product}
       variants="none"
     />
   )
@@ -143,13 +168,26 @@ export function Example() {
 
 ```tsx
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductNew } from "@/lib/mock-data"
+import type { Product } from "@/components/ui/types"
 
 export function Example() {
+  const product = {
+    id: "pillow-001",
+    title: "Solstice Accent Pillow",
+    category: "Decor",
+    images: [
+      {
+        src: "/products/solstice-accent-pillow.jpg",
+        alt: "Solstice Accent Pillow with an abstract print",
+      },
+    ],
+    price: { amount: 5900, currency: "USD" },
+  } satisfies Product
+
   return (
     <ProductCard
       layout="horizontal"
-      product={mockProductNew}
+      product={product}
       variants="none"
     />
   )
@@ -169,13 +207,28 @@ export function Example() {
 
 ```tsx
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductWithSale } from "@/lib/mock-data"
+import type { Product } from "@/components/ui/types"
 
 export function Example() {
+  const product = {
+    id: "lamp-001",
+    title: "Arc Floor Lamp",
+    category: "Lighting",
+    description:
+      "A brushed-brass floor lamp with a linen shade and a weighted marble base.",
+    images: [
+      {
+        src: "/products/arc-floor-lamp.jpg",
+        alt: "Arc Floor Lamp with a linen shade",
+      },
+    ],
+    price: { amount: 21900, currency: "USD" },
+  } satisfies Product
+
   return (
     <ProductCard
       layout="horizontal-detailed"
-      product={mockProductWithSale}
+      product={product}
       variants="none"
     />
   )
@@ -195,10 +248,23 @@ export function Example() {
 
 ```tsx
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductWithSale } from "@/lib/mock-data"
+import type { Product } from "@/components/ui/types"
 
 export function Example() {
-  return <ProductCard product={mockProductWithSale} showRating={false} />
+  const product = {
+    id: "pillow-001",
+    title: "Solstice Accent Pillow",
+    images: [
+      {
+        src: "/products/solstice-accent-pillow.jpg",
+        alt: "Solstice Accent Pillow with an abstract print",
+      },
+    ],
+    price: { amount: 5900, currency: "USD" },
+    badge: { label: "New", variant: "new" },
+  } satisfies Product
+
+  return <ProductCard product={product} showRating={false} />
 }
 ```
 
@@ -215,10 +281,23 @@ export function Example() {
 
 ```tsx
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductNew } from "@/lib/mock-data"
+import type { Product } from "@/components/ui/types"
 
 export function Example() {
-  return <ProductCard product={mockProductNew} showRating />
+  const product = {
+    id: "pillow-001",
+    title: "Solstice Accent Pillow",
+    images: [
+      {
+        src: "/products/solstice-accent-pillow.jpg",
+        alt: "Solstice Accent Pillow with an abstract print",
+      },
+    ],
+    price: { amount: 5900, currency: "USD" },
+    rating: { value: 4.8, count: 127 },
+  } satisfies Product
+
+  return <ProductCard product={product} showRating />
 }
 ```
 
@@ -235,10 +314,22 @@ export function Example() {
 
 ```tsx
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductWithSale } from "@/lib/mock-data"
+import type { Product } from "@/components/ui/types"
 
 export function Example() {
-  return <ProductCard product={mockProductWithSale} showRating={false} />
+  const product = {
+    id: "lamp-001",
+    title: "Arc Floor Lamp",
+    images: [
+      {
+        src: "/products/arc-floor-lamp.jpg",
+        alt: "Arc Floor Lamp with a linen shade",
+      },
+    ],
+    price: { amount: 18900, compareAt: 24900, currency: "USD" },
+  } satisfies Product
+
+  return <ProductCard product={product} showRating={false} />
 }
 ```
 
@@ -255,13 +346,50 @@ export function Example() {
 
 ```tsx
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductWithVariants } from "@/lib/mock-data"
+import type { Product, ProductVariant } from "@/components/ui/types"
 
 export function Example() {
+  const variants = [
+    {
+      id: "upholstery",
+      name: "Upholstery",
+      type: "swatch",
+      required: true,
+      options: [
+        { label: "Oat", value: "oat", swatch: "#e6ddd1" },
+        { label: "Pebble", value: "pebble", swatch: "#b8b0a4" },
+        { label: "Charcoal", value: "charcoal", swatch: "#44403c" },
+      ],
+    },
+    {
+      id: "delivery",
+      name: "Delivery",
+      type: "radio",
+      required: true,
+      options: [
+        { label: "Standard", value: "standard" },
+        { label: "White Glove", value: "white-glove" },
+      ],
+    },
+  ] satisfies ProductVariant[]
+
+  const product = {
+    id: "chair-001",
+    title: "Harbor Lounge Chair",
+    images: [
+      {
+        src: "/products/harbor-lounge-chair.jpg",
+        alt: "Harbor Lounge Chair in oat boucle",
+      },
+    ],
+    price: { amount: 64900, currency: "USD" },
+    variants,
+  } satisfies Product
+
   return (
     <ProductCard
       onAddToCart={() => {}}
-      product={mockProductWithVariants}
+      product={product}
       variants="overlay"
     />
   )
@@ -281,10 +409,30 @@ export function Example() {
 
 ```tsx
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductWithImages } from "@/lib/mock-data"
+import type { Product } from "@/components/ui/types"
 
 export function Example() {
-  return <ProductCard product={mockProductWithImages} />
+  const product = {
+    id: "room-set-001",
+    title: "Living Room Styling Set",
+    images: [
+      {
+        src: "/products/living-room-set-1.jpg",
+        alt: "Lounge chair styled beside a brass floor lamp",
+      },
+      {
+        src: "/products/living-room-set-2.jpg",
+        alt: "Accent pillow layered on the lounge chair",
+      },
+      {
+        src: "/products/living-room-set-3.jpg",
+        alt: "Wide view of the styled reading corner",
+      },
+    ],
+    price: { amount: 72900, currency: "USD" },
+  } satisfies Product
+
+  return <ProductCard product={product} />
 }
 ```
 
@@ -306,15 +454,35 @@ export function Example() {
 
 ```tsx
 import { ProductCard } from "@/components/ui/product-card"
-import { mockProductWithImages } from "@/lib/mock-data"
+import type { Product } from "@/components/ui/types"
 
 export function Example() {
+  const product = {
+    id: "room-set-001",
+    title: "Living Room Styling Set",
+    images: [
+      {
+        src: "/products/living-room-set-1.jpg",
+        alt: "Lounge chair styled beside a brass floor lamp",
+      },
+      {
+        src: "/products/living-room-set-2.jpg",
+        alt: "Accent pillow layered on the lounge chair",
+      },
+      {
+        src: "/products/living-room-set-3.jpg",
+        alt: "Wide view of the styled reading corner",
+      },
+    ],
+    price: { amount: 72900, currency: "USD" },
+  } satisfies Product
+
   return (
     <>
-      <ProductCard product={mockProductWithImages} slideshowControls="both" />
-      <ProductCard product={mockProductWithImages} slideshowControls="arrows" />
-      <ProductCard product={mockProductWithImages} slideshowControls="dots" />
-      <ProductCard product={mockProductWithImages} slideshowControls="none" />
+      <ProductCard product={product} slideshowControls="both" />
+      <ProductCard product={product} slideshowControls="arrows" />
+      <ProductCard product={product} slideshowControls="dots" />
+      <ProductCard product={product} slideshowControls="none" />
     </>
   )
 }

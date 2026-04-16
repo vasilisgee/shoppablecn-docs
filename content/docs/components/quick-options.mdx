@@ -75,10 +75,23 @@ with the selected variant payload once the shopper confirms.
 import * as React from "react"
 
 import { QuickOptions } from "@/components/ui/quick-options"
-import { mockSwatchOnlyVariants } from "@/lib/mock-data"
+import type { ProductVariant } from "@/components/ui/types"
 
 export function Example() {
   const [open, setOpen] = React.useState(false)
+  const variants = [
+    {
+      id: "upholstery",
+      name: "Upholstery",
+      type: "swatch",
+      required: true,
+      options: [
+        { label: "Oat", value: "oat", swatch: "#e6ddd1" },
+        { label: "Pebble", value: "pebble", swatch: "#b8b0a4" },
+        { label: "Charcoal", value: "charcoal", swatch: "#44403c" },
+      ],
+    },
+  ] satisfies ProductVariant[]
 
   return (
     <>
@@ -89,7 +102,7 @@ export function Example() {
         onAddToCart={() => setOpen(false)}
         onOpenChange={setOpen}
         open={open}
-        variants={mockSwatchOnlyVariants}
+        variants={variants}
       />
     </>
   )
@@ -111,17 +124,29 @@ export function Example() {
 import * as React from "react"
 
 import { QuickOptions } from "@/components/ui/quick-options"
-import { mockPillsOnlyVariants } from "@/lib/mock-data"
+import type { ProductVariant } from "@/components/ui/types"
 
 export function Example() {
   const [open, setOpen] = React.useState(false)
+  const variants = [
+    {
+      id: "leg-finish",
+      name: "Leg finish",
+      type: "pills",
+      options: [
+        { label: "Oak", value: "oak" },
+        { label: "Walnut", value: "walnut" },
+        { label: "Black", value: "black" },
+      ],
+    },
+  ] satisfies ProductVariant[]
 
   return (
     <QuickOptions
       onAddToCart={() => setOpen(false)}
       onOpenChange={setOpen}
       open={open}
-      variants={mockPillsOnlyVariants}
+      variants={variants}
     />
   )
 }
@@ -142,17 +167,29 @@ export function Example() {
 import * as React from "react"
 
 import { QuickOptions } from "@/components/ui/quick-options"
-import { mockSelectOnlyVariants } from "@/lib/mock-data"
+import type { ProductVariant } from "@/components/ui/types"
 
 export function Example() {
   const [open, setOpen] = React.useState(false)
+  const variants = [
+    {
+      id: "accent-pillow",
+      name: "Accent pillow",
+      type: "select",
+      options: [
+        { label: "No pillow", value: "none" },
+        { label: "Solstice print", value: "solstice" },
+        { label: "Stone boucle", value: "stone" },
+      ],
+    },
+  ] satisfies ProductVariant[]
 
   return (
     <QuickOptions
       onAddToCart={() => setOpen(false)}
       onOpenChange={setOpen}
       open={open}
-      variants={mockSelectOnlyVariants}
+      variants={variants}
     />
   )
 }
@@ -173,17 +210,31 @@ export function Example() {
 import * as React from "react"
 
 import { QuickOptions } from "@/components/ui/quick-options"
-import { mockSliderOnlyVariants } from "@/lib/mock-data"
+import type { ProductVariant } from "@/components/ui/types"
 
 export function Example() {
   const [open, setOpen] = React.useState(false)
+  const variants = [
+    {
+      id: "seat-depth",
+      name: "Seat depth",
+      type: "slider",
+      options: [],
+      sliderConfig: {
+        min: 34,
+        max: 44,
+        step: 1,
+        unit: "in",
+      },
+    },
+  ] satisfies ProductVariant[]
 
   return (
     <QuickOptions
       onAddToCart={() => setOpen(false)}
       onOpenChange={setOpen}
       open={open}
-      variants={mockSliderOnlyVariants}
+      variants={variants}
     />
   )
 }
@@ -204,17 +255,29 @@ export function Example() {
 import * as React from "react"
 
 import { QuickOptions } from "@/components/ui/quick-options"
-import { mockCheckboxOnlyVariants } from "@/lib/mock-data"
+import type { ProductVariant } from "@/components/ui/types"
 
 export function Example() {
   const [open, setOpen] = React.useState(false)
+  const variants = [
+    {
+      id: "add-ons",
+      name: "Add-ons",
+      type: "checkbox",
+      options: [
+        { label: "Assembly service", value: "assembly" },
+        { label: "Fabric protection", value: "fabric-protection" },
+        { label: "Matching ottoman", value: "ottoman" },
+      ],
+    },
+  ] satisfies ProductVariant[]
 
   return (
     <QuickOptions
       onAddToCart={() => setOpen(false)}
       onOpenChange={setOpen}
       open={open}
-      variants={mockCheckboxOnlyVariants}
+      variants={variants}
     />
   )
 }
@@ -235,17 +298,30 @@ export function Example() {
 import * as React from "react"
 
 import { QuickOptions } from "@/components/ui/quick-options"
-import { mockRadioOnlyVariants } from "@/lib/mock-data"
+import type { ProductVariant } from "@/components/ui/types"
 
 export function Example() {
   const [open, setOpen] = React.useState(false)
+  const variants = [
+    {
+      id: "delivery",
+      name: "Delivery",
+      type: "radio",
+      required: true,
+      options: [
+        { label: "Standard", value: "standard" },
+        { label: "Room of choice", value: "room-of-choice" },
+        { label: "White glove", value: "white-glove" },
+      ],
+    },
+  ] satisfies ProductVariant[]
 
   return (
     <QuickOptions
       onAddToCart={() => setOpen(false)}
       onOpenChange={setOpen}
       open={open}
-      variants={mockRadioOnlyVariants}
+      variants={variants}
     />
   )
 }
@@ -266,17 +342,73 @@ export function Example() {
 import * as React from "react"
 
 import { QuickOptions } from "@/components/ui/quick-options"
-import { mockAllQuickOptionVariants } from "@/lib/mock-data"
+import type { ProductVariant } from "@/components/ui/types"
 
 export function Example() {
   const [open, setOpen] = React.useState(false)
+  const variants = [
+    {
+      id: "upholstery",
+      name: "Upholstery",
+      type: "swatch",
+      required: true,
+      options: [
+        { label: "Oat", value: "oat", swatch: "#e6ddd1" },
+        { label: "Pebble", value: "pebble", swatch: "#b8b0a4" },
+      ],
+    },
+    {
+      id: "leg-finish",
+      name: "Leg finish",
+      type: "pills",
+      options: [
+        { label: "Oak", value: "oak" },
+        { label: "Walnut", value: "walnut" },
+      ],
+    },
+    {
+      id: "accent-pillow",
+      name: "Accent pillow",
+      type: "select",
+      options: [
+        { label: "No pillow", value: "none" },
+        { label: "Solstice print", value: "solstice" },
+      ],
+    },
+    {
+      id: "seat-depth",
+      name: "Seat depth",
+      type: "slider",
+      options: [],
+      sliderConfig: { min: 34, max: 44, step: 1, unit: "in" },
+    },
+    {
+      id: "add-ons",
+      name: "Add-ons",
+      type: "checkbox",
+      options: [
+        { label: "Assembly service", value: "assembly" },
+        { label: "Fabric protection", value: "fabric-protection" },
+      ],
+    },
+    {
+      id: "delivery",
+      name: "Delivery",
+      type: "radio",
+      required: true,
+      options: [
+        { label: "Standard", value: "standard" },
+        { label: "White glove", value: "white-glove" },
+      ],
+    },
+  ] satisfies ProductVariant[]
 
   return (
     <QuickOptions
       onAddToCart={() => setOpen(false)}
       onOpenChange={setOpen}
       open={open}
-      variants={mockAllQuickOptionVariants}
+      variants={variants}
     />
   )
 }
@@ -297,17 +429,39 @@ export function Example() {
 import * as React from "react"
 
 import { QuickOptions } from "@/components/ui/quick-options"
-import { mockAllQuickOptionVariants } from "@/lib/mock-data"
+import type { ProductVariant } from "@/components/ui/types"
 
 export function Example() {
   const [open, setOpen] = React.useState(false)
+  const variants = [
+    {
+      id: "upholstery",
+      name: "Upholstery",
+      type: "swatch",
+      required: true,
+      options: [
+        { label: "Oat", value: "oat", swatch: "#e6ddd1" },
+        { label: "Pebble", value: "pebble", swatch: "#b8b0a4" },
+      ],
+    },
+    {
+      id: "delivery",
+      name: "Delivery",
+      type: "radio",
+      required: true,
+      options: [
+        { label: "Standard", value: "standard" },
+        { label: "White glove", value: "white-glove" },
+      ],
+    },
+  ] satisfies ProductVariant[]
 
   return (
     <QuickOptions
       onAddToCart={() => setOpen(false)}
       onOpenChange={setOpen}
       open={open}
-      variants={mockAllQuickOptionVariants}
+      variants={variants}
     />
   )
 }
@@ -328,17 +482,39 @@ export function Example() {
 import * as React from "react"
 
 import { QuickOptions } from "@/components/ui/quick-options"
-import { mockDisabledQuickOptionVariants } from "@/lib/mock-data"
+import type { ProductVariant } from "@/components/ui/types"
 
 export function Example() {
   const [open, setOpen] = React.useState(false)
+  const variants = [
+    {
+      id: "upholstery",
+      name: "Upholstery",
+      type: "swatch",
+      required: true,
+      options: [
+        { label: "Oat", value: "oat", swatch: "#e6ddd1" },
+        { label: "Pebble", value: "pebble", swatch: "#b8b0a4", disabled: true },
+        { label: "Charcoal", value: "charcoal", swatch: "#44403c" },
+      ],
+    },
+    {
+      id: "delivery",
+      name: "Delivery",
+      type: "radio",
+      options: [
+        { label: "Standard", value: "standard" },
+        { label: "White glove", value: "white-glove", disabled: true },
+      ],
+    },
+  ] satisfies ProductVariant[]
 
   return (
     <QuickOptions
       onAddToCart={() => setOpen(false)}
       onOpenChange={setOpen}
       open={open}
-      variants={mockDisabledQuickOptionVariants}
+      variants={variants}
     />
   )
 }
@@ -360,10 +536,32 @@ import * as React from "react"
 
 import { Button } from "@/components/ui/button"
 import { QuickOptions } from "@/components/ui/quick-options"
-import { mockAllQuickOptionVariants } from "@/lib/mock-data"
+import type { ProductVariant } from "@/components/ui/types"
 
 export function Example() {
   const [open, setOpen] = React.useState(false)
+  const variants = [
+    {
+      id: "upholstery",
+      name: "Upholstery",
+      type: "swatch",
+      required: true,
+      options: [
+        { label: "Oat", value: "oat", swatch: "#e6ddd1" },
+        { label: "Pebble", value: "pebble", swatch: "#b8b0a4" },
+      ],
+    },
+    {
+      id: "delivery",
+      name: "Delivery",
+      type: "radio",
+      required: true,
+      options: [
+        { label: "Standard", value: "standard" },
+        { label: "White glove", value: "white-glove" },
+      ],
+    },
+  ] satisfies ProductVariant[]
 
   return (
     <>
@@ -374,7 +572,7 @@ export function Example() {
         onAddToCart={() => setOpen(false)}
         onOpenChange={setOpen}
         open={open}
-        variants={mockAllQuickOptionVariants}
+        variants={variants}
       />
     </>
   )

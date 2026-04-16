@@ -135,15 +135,21 @@ npx shadcn@latest add @shoppablecn/hotspot-image
 import { HotspotImage } from "@/components/ui/hotspot-image"
 import { HotspotPin } from "@/components/ui/hotspot-pin"
 import { HotspotTooltip } from "@/components/ui/hotspot-tooltip"
-import { mockSceneLivingRoom } from "@/lib/mock-data"
 
 export function Example() {
+  const scene = {
+    src: "/scenes/living-room.jpg",
+    alt: "Living room scene with a lounge chair, floor lamp, and framed wall art",
+    width: 640,
+    height: 960,
+  }
+
   return (
     <HotspotImage
-      alt={mockSceneLivingRoom.alt}
-      height={mockSceneLivingRoom.height}
-      src={mockSceneLivingRoom.src}
-      width={mockSceneLivingRoom.width}
+      alt={scene.alt}
+      height={scene.height}
+      src={scene.src}
+      width={scene.width}
     >
       <HotspotPin x={24} y={18}>
         <HotspotTooltip
@@ -171,15 +177,21 @@ export function Example() {
 import { HotspotImage } from "@/components/ui/hotspot-image"
 import { HotspotPin } from "@/components/ui/hotspot-pin"
 import { HotspotTooltip } from "@/components/ui/hotspot-tooltip"
-import { mockSceneProductHero } from "@/lib/mock-data"
 
 export function Example() {
+  const scene = {
+    src: "/scenes/living-room.jpg",
+    alt: "Living room scene with a lounge chair, floor lamp, and framed wall art",
+    width: 640,
+    height: 960,
+  }
+
   return (
     <HotspotImage
-      alt={mockSceneProductHero.alt}
-      height={mockSceneProductHero.height}
-      src={mockSceneProductHero.src}
-      width={mockSceneProductHero.width}
+      alt={scene.alt}
+      height={scene.height}
+      src={scene.src}
+      width={scene.width}
     >
       <HotspotPin variant="plus" x={51} y={67}>
         <HotspotTooltip description="Primary product pin on the lounge chair." title="Harbor lounge chair" />
@@ -209,15 +221,34 @@ import { HotspotLink } from "@/components/ui/hotspot-link"
 import { HotspotPin } from "@/components/ui/hotspot-pin"
 import { HotspotTooltip } from "@/components/ui/hotspot-tooltip"
 import { ProductCard } from "@/components/ui/product-card"
-import { mockSceneChairProduct, mockSceneMixedContent } from "@/lib/mock-data"
+import type { Product } from "@/components/ui/types"
 
 export function Example() {
+  const scene = {
+    src: "/scenes/living-room.jpg",
+    alt: "Living room scene with a lounge chair, floor lamp, and framed wall art",
+    width: 640,
+    height: 960,
+  }
+
+  const product = {
+    id: "chair-001",
+    title: "Harbor Lounge Chair",
+    images: [
+      {
+        src: "/products/harbor-lounge-chair.jpg",
+        alt: "Harbor Lounge Chair in oat boucle",
+      },
+    ],
+    price: { amount: 64900, currency: "USD" },
+  } satisfies Product
+
   return (
     <HotspotImage
-      alt={mockSceneMixedContent.alt}
-      height={mockSceneMixedContent.height}
-      src={mockSceneMixedContent.src}
-      width={mockSceneMixedContent.width}
+      alt={scene.alt}
+      height={scene.height}
+      src={scene.src}
+      width={scene.width}
     >
       <HotspotPin x={24} y={18}>
         <HotspotTooltip
@@ -230,7 +261,7 @@ export function Example() {
       </HotspotPin>
       <HotspotPin x={51} y={67}>
         <div className="w-[320px]">
-          <ProductCard product={mockSceneChairProduct} variants="none" />
+          <ProductCard product={product} variants="none" />
         </div>
       </HotspotPin>
     </HotspotImage>
@@ -253,21 +284,64 @@ export function Example() {
 import { HotspotImage } from "@/components/ui/hotspot-image"
 import { HotspotPin } from "@/components/ui/hotspot-pin"
 import { ProductCard } from "@/components/ui/product-card"
-import { mockSceneChairWithVariants, mockSceneMixedContent } from "@/lib/mock-data"
+import type { Product, ProductVariant } from "@/components/ui/types"
 
 export function Example() {
+  const scene = {
+    src: "/scenes/living-room.jpg",
+    alt: "Living room scene with a lounge chair, floor lamp, and framed wall art",
+    width: 640,
+    height: 960,
+  }
+
+  const variants = [
+    {
+      id: "upholstery",
+      name: "Upholstery",
+      type: "swatch",
+      required: true,
+      options: [
+        { label: "Oat", value: "oat", swatch: "#e6ddd1" },
+        { label: "Pebble", value: "pebble", swatch: "#b8b0a4" },
+      ],
+    },
+    {
+      id: "delivery",
+      name: "Delivery",
+      type: "radio",
+      required: true,
+      options: [
+        { label: "Standard", value: "standard" },
+        { label: "White glove", value: "white-glove" },
+      ],
+    },
+  ] satisfies ProductVariant[]
+
+  const product = {
+    id: "chair-001",
+    title: "Harbor Lounge Chair",
+    images: [
+      {
+        src: "/products/harbor-lounge-chair.jpg",
+        alt: "Harbor Lounge Chair in oat boucle",
+      },
+    ],
+    price: { amount: 64900, currency: "USD" },
+    variants,
+  } satisfies Product
+
   return (
     <HotspotImage
-      alt={mockSceneMixedContent.alt}
-      height={mockSceneMixedContent.height}
-      src={mockSceneMixedContent.src}
-      width={mockSceneMixedContent.width}
+      alt={scene.alt}
+      height={scene.height}
+      src={scene.src}
+      width={scene.width}
     >
       <HotspotPin x={51} y={67}>
         <div className="w-[320px]">
           <ProductCard
             onAddToCart={() => {}}
-            product={mockSceneChairWithVariants}
+            product={product}
             variants="overlay"
           />
         </div>
