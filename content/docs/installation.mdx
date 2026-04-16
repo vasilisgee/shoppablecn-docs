@@ -1,37 +1,49 @@
 ---
 title: Installation
-description: Install shoppablecn components into your shadcn/ui project using the shadcn CLI.
+description: Add shoppablecn to your shadcn project and install any component from the live registry.
 icon: Download
 ---
 
-Install shoppablecn components into your shadcn/ui project using the shadcn CLI.
-Component source copies directly into your project — no npm package, no runtime
-dependency.
+shoppablecn installs through the shadcn CLI, so you copy the component source
+straight into your project and keep full ownership of the code. There is no
+separate runtime package to manage, version-lock, or work around later.
 
 ## Prerequisites
 
-- [shadcn/ui initialized](https://ui.shadcn.com/docs/installation) in your project
-- Next.js 15+ (or any React project compatible with shadcn)
-- TypeScript
+- shadcn/ui initialized in your project. See the [official shadcn installation guide](https://ui.shadcn.com/docs/installation).
+- Node 18 or newer
+- React 18 or newer
 
-## Install components
+## Setup the namespace
+
+The recommended setup is to register the shoppablecn namespace once, then
+install components with short, readable commands.
+
+```bash
+npx shadcn@latest registry add @shoppablecn=https://shoppablecn.dev/r/{name}.json
+```
+
+This adds shoppablecn to your local `components.json` file and unlocks the
+namespace-based install commands below.
+
+```bash
+npx shadcn@latest add @shoppablecn/product-card
+npx shadcn@latest add @shoppablecn/quick-options
+npx shadcn@latest add @shoppablecn/hotspot-image
+```
+
+## Alternative: direct URL install
+
+If you prefer not to register a namespace, you can install directly from the
+live registry URLs instead.
 
 ```bash
 npx shadcn@latest add https://shoppablecn.dev/r/product-card.json
-```
-
-```bash
 npx shadcn@latest add https://shoppablecn.dev/r/quick-options.json
-```
-
-```bash
 npx shadcn@latest add https://shoppablecn.dev/r/hotspot-image.json
 ```
 
-The CLI downloads the component source into your project and installs any
-shadcn primitives it depends on (Button, Card, Badge, etc.).
-
 ## Next steps
 
-- [Introduction](./introduction) — overview of the library
-- [ProductCard](./product-card), [QuickOptions](./quick-options), [HotspotImage](./hotspot-image) — component documentation
+- Read the [Introduction](/docs) for an overview of the library.
+- Jump into [ProductCard](/docs/components/product-card), [QuickOptions](/docs/components/quick-options), or [HotspotImage](/docs/components/hotspot-image).
