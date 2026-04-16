@@ -103,16 +103,16 @@ import type { Product } from "@/components/ui/types"
 
 export function Example() {
   const product = {
-    id: "chair-001",
-    title: "Harbor Lounge Chair",
-    category: "Seating",
+    id: "art-print-001",
+    title: "Rocket Launch Art Print",
+    category: "Wall Art",
     images: [
       {
-        src: "/products/harbor-lounge-chair.jpg",
-        alt: "Harbor Lounge Chair in oat boucle",
+        src: "/products/rocket-launch-art-print.jpg",
+        alt: "Rocket Launch Framed Art Print in an oak frame",
       },
     ],
-    price: { amount: 64900, currency: "USD" },
+    price: { amount: 14900, currency: "USD" },
   } satisfies Product
 
   return (
@@ -255,16 +255,16 @@ import type { Product } from "@/components/ui/types"
 
 export function Example() {
   const product = {
-    id: "pillow-001",
-    title: "Pixel Heart Accent Pillow",
+    id: "art-print-001",
+    title: "Rocket Launch Art Print",
     images: [
       {
-        src: "/products/pixel-heart-accent-pillow.jpg",
-        alt: "Pixel Heart Accent Pillow with a retro rainbow heart graphic",
+        src: "/products/rocket-launch-art-print.jpg",
+        alt: "Rocket Launch Framed Art Print in an oak frame",
       },
     ],
-    price: { amount: 5900, currency: "USD" },
-    rating: { value: 4.8, count: 127 },
+    price: { amount: 14900, currency: "USD" },
+    rating: { value: 4.9, count: 41 },
   } satisfies Product
 
   return <ProductCard product={product} showRating />
@@ -450,12 +450,25 @@ export function Example() {
     price: { amount: 72900, currency: "USD" },
   } satisfies Product
 
+  function rotateImages(startIndex: number): Product {
+    return {
+      ...product,
+      id: `${product.id}-${startIndex}`,
+      images: [
+        ...product.images.slice(startIndex),
+        ...product.images.slice(0, startIndex),
+      ],
+    }
+  }
+
+  const slideshowProducts = [0, 1, 2, 3].map(rotateImages)
+
   return (
     <>
-      <ProductCard product={product} slideshowControls="both" />
-      <ProductCard product={product} slideshowControls="arrows" />
-      <ProductCard product={product} slideshowControls="dots" />
-      <ProductCard product={product} slideshowControls="none" />
+      <ProductCard product={slideshowProducts[0]} slideshowControls="both" />
+      <ProductCard product={slideshowProducts[1]} slideshowControls="arrows" />
+      <ProductCard product={slideshowProducts[2]} slideshowControls="dots" />
+      <ProductCard product={slideshowProducts[3]} slideshowControls="none" />
     </>
   )
 }

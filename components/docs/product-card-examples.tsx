@@ -6,16 +6,32 @@ import { PreviewFrame } from "@/components/docs/preview-frame"
 import { ProductCard } from "@/components/ui/product-card"
 import {
   mockProductNew,
-  mockProductSimple,
+  mockProductLongTitle,
   mockProductWithImages,
   mockProductWithSale,
   mockProductWithVariants,
+  mockSceneArtPrintProduct,
 } from "@/lib/mock-data"
+
+function reorderProductImages(startIndex: number) {
+  return {
+    ...mockProductWithImages,
+    id: `${mockProductWithImages.id}-${startIndex}`,
+    images: [
+      ...mockProductWithImages.images.slice(startIndex),
+      ...mockProductWithImages.images.slice(0, startIndex),
+    ],
+  }
+}
 
 export function ProductCardVerticalExample() {
   return (
     <PreviewFrame className="max-w-sm">
-      <ProductCard layout="vertical" product={mockProductSimple} variants="none" />
+      <ProductCard
+        layout="vertical"
+        product={mockSceneArtPrintProduct}
+        variants="none"
+      />
     </PreviewFrame>
   )
 }
@@ -55,7 +71,7 @@ export function ProductCardBadgeExample() {
 export function ProductCardRatingExample() {
   return (
     <PreviewFrame className="max-w-sm">
-      <ProductCard product={mockProductNew} showRating />
+      <ProductCard product={mockProductLongTitle} showRating />
     </PreviewFrame>
   )
 }
@@ -93,16 +109,20 @@ export function ProductCardSlideshowExample() {
 }
 
 export function ProductCardSlideshowControlsExample() {
+  const slideshowProducts = [
+    reorderProductImages(0),
+    reorderProductImages(1),
+    reorderProductImages(2),
+    reorderProductImages(3),
+  ]
+
   return (
     <PreviewFrame>
       <div className="grid gap-4 lg:grid-cols-2">
-        <ProductCard product={mockProductWithImages} slideshowControls="both" />
-        <ProductCard
-          product={mockProductWithImages}
-          slideshowControls="arrows"
-        />
-        <ProductCard product={mockProductWithImages} slideshowControls="dots" />
-        <ProductCard product={mockProductWithImages} slideshowControls="none" />
+        <ProductCard product={slideshowProducts[0]} slideshowControls="both" />
+        <ProductCard product={slideshowProducts[1]} slideshowControls="arrows" />
+        <ProductCard product={slideshowProducts[2]} slideshowControls="dots" />
+        <ProductCard product={slideshowProducts[3]} slideshowControls="none" />
       </div>
     </PreviewFrame>
   )
