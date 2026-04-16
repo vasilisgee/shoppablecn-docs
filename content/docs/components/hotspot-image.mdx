@@ -139,9 +139,9 @@ import { HotspotTooltip } from "@/components/ui/hotspot-tooltip"
 export function Example() {
   const scene = {
     src: "/scenes/living-room.jpg",
-    alt: "Living room scene with a lounge chair, floor lamp, and framed wall art",
-    width: 640,
-    height: 960,
+    alt: "Gaming lounge scene with an ivory chair, pixel heart pillow, floor lamp, retro controllers, and rocket wall art",
+    width: 964,
+    height: 1277,
   }
 
   return (
@@ -151,9 +151,9 @@ export function Example() {
       src={scene.src}
       width={scene.width}
     >
-      <HotspotPin x={24} y={18}>
+      <HotspotPin x={16} y={11}>
         <HotspotTooltip
-          description="Brushed brass floor lamp with a linen shade and a weighted marble base."
+          description="A matte black floor lamp that pools warm ambient light over the chair and desk side of the room."
           title="Arc floor lamp"
         />
       </HotspotPin>
@@ -181,9 +181,9 @@ import { HotspotTooltip } from "@/components/ui/hotspot-tooltip"
 export function Example() {
   const scene = {
     src: "/scenes/living-room.jpg",
-    alt: "Living room scene with a lounge chair, floor lamp, and framed wall art",
-    width: 640,
-    height: 960,
+    alt: "Gaming lounge scene with an ivory chair, pixel heart pillow, floor lamp, retro controllers, and rocket wall art",
+    width: 964,
+    height: 1277,
   }
 
   return (
@@ -193,11 +193,11 @@ export function Example() {
       src={scene.src}
       width={scene.width}
     >
-      <HotspotPin variant="plus" x={51} y={67}>
+      <HotspotPin variant="plus" x={40} y={58}>
         <HotspotTooltip description="Primary product pin on the lounge chair." title="Harbor lounge chair" />
       </HotspotPin>
-      <HotspotPin variant="dot" x={24} y={18}>
-        <HotspotTooltip description="Secondary detail pin on the floor lamp." title="Arc floor lamp" />
+      <HotspotPin variant="dot" x={33} y={88}>
+        <HotspotTooltip description="Secondary detail pin on the retro controller." title="Retro Wireless Controller" />
       </HotspotPin>
     </HotspotImage>
   )
@@ -226,21 +226,21 @@ import type { Product } from "@/components/ui/types"
 export function Example() {
   const scene = {
     src: "/scenes/living-room.jpg",
-    alt: "Living room scene with a lounge chair, floor lamp, and framed wall art",
-    width: 640,
-    height: 960,
+    alt: "Gaming lounge scene with an ivory chair, pixel heart pillow, floor lamp, retro controllers, and rocket wall art",
+    width: 964,
+    height: 1277,
   }
 
   const product = {
-    id: "chair-001",
-    title: "Harbor Lounge Chair",
+    id: "controller-001",
+    title: "Retro Wireless Controller",
     images: [
       {
-        src: "/products/harbor-lounge-chair.jpg",
-        alt: "Harbor Lounge Chair in oat boucle",
+        src: "/products/retro-wireless-controller.jpg",
+        alt: "Retro Wireless Controller with colorful face buttons",
       },
     ],
-    price: { amount: 64900, currency: "USD" },
+    price: { amount: 5900, currency: "USD" },
   } satisfies Product
 
   return (
@@ -250,16 +250,16 @@ export function Example() {
       src={scene.src}
       width={scene.width}
     >
-      <HotspotPin x={24} y={18}>
+      <HotspotPin x={16} y={11}>
         <HotspotTooltip
-          description="Brushed brass and linen bring a softer, editorial feel to the seating corner."
+          description="The oversized lamp softens the gaming setup with warm light and gives the corner a more editorial feel."
           title="Arc floor lamp"
         />
       </HotspotPin>
-      <HotspotPin variant="dot" x={82} y={24}>
+      <HotspotPin variant="dot" x={71} y={18}>
         <HotspotLink href="/docs/components/product-card" label="See the full room edit" />
       </HotspotPin>
-      <HotspotPin x={51} y={67}>
+      <HotspotPin x={33} y={88}>
         <div className="w-[320px]">
           <ProductCard product={product} variants="none" />
         </div>
@@ -289,9 +289,9 @@ import type { Product, ProductVariant } from "@/components/ui/types"
 export function Example() {
   const scene = {
     src: "/scenes/living-room.jpg",
-    alt: "Living room scene with a lounge chair, floor lamp, and framed wall art",
-    width: 640,
-    height: 960,
+    alt: "Gaming lounge scene with an ivory chair, pixel heart pillow, floor lamp, retro controllers, and rocket wall art",
+    width: 964,
+    height: 1277,
   }
 
   const variants = [
@@ -337,7 +337,7 @@ export function Example() {
       src={scene.src}
       width={scene.width}
     >
-      <HotspotPin x={51} y={67}>
+      <HotspotPin x={40} y={58}>
         <div className="w-[320px]">
           <ProductCard
             onAddToCart={() => {}}

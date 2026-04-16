@@ -4,6 +4,7 @@ const mockProductImageSources = [
   "/mock/product-1.jpg",
   "/mock/product-2.jpg",
   "/mock/product-3.jpg",
+  "/mock/product-4.jpg",
 ] as const
 
 function getMockImage(index: number, alt: string) {
@@ -34,22 +35,22 @@ export const mockProductSimple: Product = {
 }
 
 export const mockProductNew: Product = {
-  id: "solstice-accent-pillow",
-  title: "Solstice Accent Pillow",
+  id: "pixel-heart-accent-pillow",
+  title: "Pixel Heart Accent Pillow",
   category: "Decor",
   images: [
     getMockImage(
       1,
-      "Solstice Accent Pillow with an abstract print in yellow, green, coral, and blush"
+      "Pixel Heart Accent Pillow with a retro rainbow heart graphic"
     ),
   ],
   price: {
-    amount: 6800,
+    amount: 6400,
     currency: "USD",
   },
   rating: {
-    value: 4.5,
-    count: 128,
+    value: 4.7,
+    count: 182,
   },
   badge: {
     label: "New",
@@ -58,25 +59,25 @@ export const mockProductNew: Product = {
 }
 
 export const mockProductWithSale: Product = {
-  id: "arc-floor-lamp",
-  title: "Arc Floor Lamp",
-  category: "Lighting",
+  id: "retro-wireless-controller",
+  title: "Retro Wireless Controller",
+  category: "Gaming",
   description:
-    "A brushed brass floor lamp with a linen shade and marble base that adds warm ambient light to living rooms and reading corners.",
+    "A rechargeable retro-style controller with tactile face buttons and a familiar classic layout for casual living-room gaming.",
   images: [
     getMockImage(
       2,
-      "Arc Floor Lamp with a brushed brass stem, linen shade, and marble base"
+      "Retro Wireless Controller with colorful face buttons on a matte black body"
     ),
   ],
   price: {
-    amount: 18900,
-    compareAt: 22900,
+    amount: 5900,
+    compareAt: 7900,
     currency: "USD",
   },
   rating: {
-    value: 4,
-    count: 84,
+    value: 4.4,
+    count: 96,
   },
   badge: {
     label: "Sale",
@@ -85,59 +86,60 @@ export const mockProductWithSale: Product = {
 }
 
 export const mockProductLongTitle: Product = {
-  id: "harbor-lounge-chair-oversized",
+  id: "rocket-launch-art-print-framed",
   title:
-    "Harbor Lounge Chair with Oversized Cushions, Tailored Upholstery, and Solid Oak Legs for Layered Living Rooms",
-  category: "Seating",
+    "Rocket Launch Framed Art Print with Oak Frame, Vintage Space Illustration, and Oversized Gallery Presence",
+  category: "Wall Art",
   images: [
     getMockImage(
-      0,
-      "Harbor Lounge Chair with oversized cushions and tailored ivory upholstery"
+      3,
+      "Rocket Launch Framed Art Print with an oak frame and vintage-inspired space illustration"
     ),
   ],
   price: {
-    amount: 54500,
+    amount: 15900,
     currency: "USD",
   },
   rating: {
-    value: 4.5,
+    value: 4.6,
     count: 42,
   },
 }
 
 export const mockProductNoCategory: Product = {
-  id: "solstice-accent-pillow-unlabeled",
-  title: "Solstice Accent Pillow",
+  id: "retro-wireless-controller-unlabeled",
+  title: "Retro Wireless Controller",
   images: [
     getMockImage(
-      1,
-      "Solstice Accent Pillow with oversized abstract shapes in warm tones"
+      2,
+      "Retro Wireless Controller with a directional pad and bright face buttons"
     ),
   ],
   price: {
-    amount: 6200,
+    amount: 5400,
     currency: "USD",
   },
   rating: {
-    value: 4,
+    value: 4.1,
     count: 23,
   },
 }
 
 export const mockProductDetailed: Product = {
-  id: "harbor-lounge-chair-signature",
-  title: "Harbor Lounge Chair Signature Edition",
-  category: "Seating",
+  id: "cozy-gamer-lounge-bundle",
+  title: "Cozy Gamer Lounge Bundle",
+  category: "Bundles",
   description:
-    "A tailored lounge chair with deep cushioning, oak legs, and a supportive upright silhouette designed for living rooms and reading corners.",
+    "A styled living-room setup that pairs the Harbor Lounge Chair with a rainbow heart pillow, a retro controller, and a framed rocket print.",
   images: getMockImages(
-    "Harbor Lounge Chair Signature Edition in ivory upholstery",
-    "Harbor Lounge Chair Signature Edition styled with the Solstice Accent Pillow",
-    "Harbor Lounge Chair Signature Edition staged beside the Arc Floor Lamp"
+    "Harbor Lounge Chair in ivory upholstery with warm oak legs",
+    "Pixel Heart Accent Pillow styled on the Harbor Lounge Chair",
+    "Retro Wireless Controller staged in the gaming lounge setup",
+    "Rocket Launch Framed Art Print displayed above the gaming desk"
   ),
   price: {
-    amount: 54900,
-    compareAt: 62900,
+    amount: 69900,
+    compareAt: 78900,
     currency: "USD",
   },
   rating: {
@@ -148,11 +150,11 @@ export const mockProductDetailed: Product = {
     label: "Best Seller",
     variant: "default",
   },
-  href: "/products/harbor-lounge-chair-signature",
+  href: "/products/cozy-gamer-lounge-bundle",
   variants: [
     {
-      id: "upholstery",
-      name: "Upholstery",
+      id: "chair-fabric",
+      name: "Chair fabric",
       type: "swatch",
       required: true,
       options: [
@@ -184,17 +186,17 @@ export const mockProductBrokenImage: Product = {
 }
 
 export const mockProductLowRating: Product = {
-  id: "gallery-accent-pillow",
-  title: "Gallery Accent Pillow",
-  category: "Decor",
+  id: "budget-gamepad",
+  title: "Budget Gamepad",
+  category: "Gaming",
   images: [
     getMockImage(
-      1,
-      "Gallery Accent Pillow with an abstract print and relaxed brushed texture"
+      2,
+      "Budget Gamepad with a retro silhouette and bright face buttons"
     ),
   ],
   price: {
-    amount: 2800,
+    amount: 2400,
     currency: "USD",
   },
   rating: {
@@ -204,51 +206,59 @@ export const mockProductLowRating: Product = {
 }
 
 export const mockProductWithImages: Product = {
-  id: "living-room-styling-set",
-  title: "Living Room Styling Set",
+  id: "gaming-lounge-styling-set",
+  title: "Gaming Lounge Styling Set",
   category: "Bundles",
   images: [
     getMockImage(
       0,
-      "Living Room Styling Set including the Harbor Lounge Chair"
+      "Gaming Lounge Styling Set including the Harbor Lounge Chair"
     ),
     getMockImage(
       1,
-      "Living Room Styling Set including the Solstice Accent Pillow"
+      "Gaming Lounge Styling Set including the Pixel Heart Accent Pillow"
     ),
     getMockImage(
       2,
-      "Living Room Styling Set including the Arc Floor Lamp"
+      "Gaming Lounge Styling Set including the Retro Wireless Controller"
+    ),
+    getMockImage(
+      3,
+      "Gaming Lounge Styling Set including the Rocket Launch Framed Art Print"
     ),
   ],
   price: {
-    amount: 58900,
+    amount: 61900,
     currency: "USD",
   },
   rating: {
-    value: 4.2,
-    count: 56,
+    value: 4.5,
+    count: 73,
   },
 }
 
 export const mockProductWithVariants: Product = {
-  id: "harbor-lounge-chair-custom",
-  title: "Harbor Lounge Chair Custom",
+  id: "harbor-lounge-chair-setup",
+  title: "Harbor Lounge Chair Setup",
   category: "Seating",
   description:
-    "A configurable lounge chair setup with upholstery, finish, and delivery options for building a polished living-room corner.",
+    "A configurable chair setup with upholstery, styling, and delivery options for building a cozy gaming corner.",
   images: [
     getMockImage(
       0,
-      "Harbor Lounge Chair Custom front view in ivory upholstery"
+      "Harbor Lounge Chair Setup front view in ivory upholstery"
     ),
     getMockImage(
       1,
-      "Harbor Lounge Chair Custom styled with the Solstice Accent Pillow"
+      "Harbor Lounge Chair Setup styled with the Pixel Heart Accent Pillow"
     ),
     getMockImage(
       2,
-      "Harbor Lounge Chair Custom staged beside the Arc Floor Lamp"
+      "Harbor Lounge Chair Setup paired with a Retro Wireless Controller"
+    ),
+    getMockImage(
+      3,
+      "Harbor Lounge Chair Setup styled beneath the Rocket Launch Framed Art Print"
     ),
   ],
   price: {
@@ -295,8 +305,8 @@ export const mockProductWithVariants: Product = {
       type: "select",
       options: [
         { label: "None", value: "none" },
-        { label: "Solstice", value: "solstice" },
-        { label: "Gallery", value: "gallery" },
+        { label: "Pixel Heart", value: "pixel-heart" },
+        { label: "Cream Boucle", value: "cream-boucle" },
       ],
     },
     {
@@ -358,23 +368,23 @@ export const mockSceneChairProduct: Product = {
 }
 
 export const mockScenePillowProduct: Product = {
-  id: "solstice-accent-pillow",
-  title: "Solstice Accent Pillow",
+  id: "pixel-heart-accent-pillow",
+  title: "Pixel Heart Accent Pillow",
   category: "Decor",
   description:
-    "An abstract printed accent pillow with warm earth tones and a soft brushed cover.",
+    "A retro-inspired accent pillow with a pixel heart motif and rainbow stripe detail.",
   images: [
     getMockImage(
       1,
-      "Solstice Accent Pillow with an abstract print in yellow, green, coral, and blush"
+      "Pixel Heart Accent Pillow with a retro rainbow heart graphic"
     ),
   ],
   price: {
-    amount: 6800,
+    amount: 6400,
     currency: "USD",
   },
   rating: {
-    value: 4.6,
+    value: 4.8,
     count: 58,
   },
   badge: {
@@ -383,12 +393,60 @@ export const mockScenePillowProduct: Product = {
   },
 }
 
+export const mockSceneControllerProduct: Product = {
+  id: "retro-wireless-controller",
+  title: "Retro Wireless Controller",
+  category: "Gaming",
+  description:
+    "A rechargeable controller with a familiar retro layout for couch gaming and media setups.",
+  images: [
+    getMockImage(
+      2,
+      "Retro Wireless Controller with colorful face buttons on a matte black body"
+    ),
+  ],
+  price: {
+    amount: 5900,
+    currency: "USD",
+  },
+  rating: {
+    value: 4.4,
+    count: 96,
+  },
+  badge: {
+    label: "Sale",
+    variant: "sale",
+  },
+}
+
+export const mockSceneArtPrintProduct: Product = {
+  id: "rocket-launch-art-print",
+  title: "Rocket Launch Art Print",
+  category: "Wall Art",
+  description:
+    "A framed rocket illustration that adds a playful space-age focal point to reading corners and gaming rooms.",
+  images: [
+    getMockImage(
+      3,
+      "Rocket Launch Framed Art Print with an oak frame and vintage-inspired space illustration"
+    ),
+  ],
+  price: {
+    amount: 14900,
+    currency: "USD",
+  },
+  rating: {
+    value: 4.9,
+    count: 41,
+  },
+}
+
 export const mockSceneChairWithVariants: Product = {
-  id: "harbor-lounge-chair-custom",
+  id: "harbor-lounge-chair-setup",
   title: "Harbor Lounge Chair",
   category: "Seating",
   description:
-    "Customize the Harbor Lounge Chair with upholstery, finish, and delivery options for your living room.",
+    "Customize the Harbor Lounge Chair with upholstery, styling, and delivery options for your gaming lounge.",
   images: [
     getMockImage(
       0,
@@ -396,11 +454,15 @@ export const mockSceneChairWithVariants: Product = {
     ),
     getMockImage(
       1,
-      "Harbor Lounge Chair styled with the Solstice Accent Pillow"
+      "Harbor Lounge Chair styled with the Pixel Heart Accent Pillow"
     ),
     getMockImage(
       2,
-      "Harbor Lounge Chair staged beside a brass floor lamp"
+      "Harbor Lounge Chair setup paired with a Retro Wireless Controller"
+    ),
+    getMockImage(
+      3,
+      "Harbor Lounge Chair staged beneath the Rocket Launch Framed Art Print"
     ),
   ],
   price: {
@@ -558,7 +620,9 @@ export const mockDisabledQuickOptionVariants: VariantSet = [
     ? {
         ...selectVariant,
         options: selectVariant.options.map((option) =>
-          option.value === "gallery" ? { ...option, disabled: true } : option
+          option.value === "cream-boucle"
+            ? { ...option, disabled: true }
+            : option
         ),
       }
     : undefined,
@@ -604,37 +668,60 @@ export type MockScene = {
 }
 
 const defaultSceneSize = {
-  width: 640,
-  height: 960,
+  width: 964,
+  height: 1277,
 } as const
 
 export const mockSceneLivingRoom: MockScene = {
   id: "living-room",
   src: "/mock/product-scene.jpg",
-  alt: "Living room scene with a lounge chair, accent pillow, floor lamp, and framed wall art",
+  alt: "Gaming lounge scene with an ivory chair, pixel heart pillow, floor lamp, retro controllers, and rocket wall art",
   ...defaultSceneSize,
   pins: [
     {
       id: "living-room-chair",
-      x: 51,
-      y: 67,
+      x: 40,
+      y: 58,
       content: { kind: "product", product: mockSceneChairProduct },
     },
     {
       id: "living-room-pillow",
-      x: 51,
-      y: 53,
+      x: 40,
+      y: 43,
       content: { kind: "product", product: mockScenePillowProduct },
     },
     {
       id: "living-room-lamp",
-      x: 24,
-      y: 18,
+      x: 16,
+      y: 11,
       content: {
         kind: "tooltip",
         title: "Arc floor lamp",
         description:
-          "Brushed brass floor lamp with a linen shade and a weighted marble base.",
+          "A matte black floor lamp that pools warm ambient light over the chair and side of the room.",
+      },
+    },
+    {
+      id: "living-room-controller",
+      x: 33,
+      y: 88,
+      content: { kind: "product", product: mockSceneControllerProduct },
+    },
+    {
+      id: "living-room-art-print",
+      x: 71,
+      y: 18,
+      content: { kind: "product", product: mockSceneArtPrintProduct },
+    },
+    {
+      id: "living-room-monitor",
+      x: 57,
+      y: 31,
+      content: {
+        kind: "tooltip",
+        title: "Desk display",
+        description:
+          "An ultrawide monitor and compact speakers complete the gaming nook behind the chair.",
       },
     },
   ],
@@ -643,39 +730,40 @@ export const mockSceneLivingRoom: MockScene = {
 export const mockSceneProductHero: MockScene = {
   id: "product-hero",
   src: "/mock/product-scene.jpg",
-  alt: "Living room scene with a lounge chair, accent pillow, floor lamp, and framed wall art",
+  alt: "Gaming lounge scene with an ivory chair, pixel heart pillow, floor lamp, retro controllers, and rocket wall art",
   ...defaultSceneSize,
   pins: [
     {
       id: "product-hero-chair",
-      x: 51,
-      y: 67,
+      x: 40,
+      y: 58,
       content: {
         kind: "tooltip",
         title: "Harbor lounge chair",
         description:
-          "Squared arms and deep cushioning make the chair the focal point of the room.",
+          "Squared arms and deep cushioning make the chair the focal point of the setup.",
       },
     },
     {
-      id: "product-hero-lamp",
-      x: 24,
+      id: "product-hero-art-print",
+      x: 71,
       y: 18,
       content: {
         kind: "tooltip",
-        title: "Arc floor lamp",
+        title: "Rocket Launch Art Print",
         description:
-          "A slim brass silhouette adds warm task lighting without taking over the scene.",
+          "The framed space illustration adds height and a playful story beat above the desk.",
       },
     },
     {
-      id: "product-hero-link",
-      x: 82,
-      y: 24,
+      id: "product-hero-controller",
+      x: 33,
+      y: 88,
       content: {
-        kind: "link",
-        label: "See the full room edit",
-        href: "/docs/components/product-card",
+        kind: "tooltip",
+        title: "Retro Wireless Controller",
+        description:
+          "A compact retro gamepad brings color and personality to the coffee-table surface.",
       },
     },
   ],
@@ -684,34 +772,40 @@ export const mockSceneProductHero: MockScene = {
 export const mockSceneMixedContent: MockScene = {
   id: "mixed-content",
   src: "/mock/product-scene.jpg",
-  alt: "Living room scene with a lounge chair, accent pillow, floor lamp, and framed wall art",
+  alt: "Gaming lounge scene with an ivory chair, pixel heart pillow, floor lamp, retro controllers, and rocket wall art",
   ...defaultSceneSize,
   pins: [
     {
-      id: "mixed-product",
-      x: 51,
-      y: 67,
+      id: "mixed-chair-product",
+      x: 40,
+      y: 58,
       content: { kind: "product", product: mockSceneChairWithVariants },
     },
     {
+      id: "mixed-controller-product",
+      x: 33,
+      y: 88,
+      content: { kind: "product", product: mockSceneControllerProduct },
+    },
+    {
       id: "mixed-tooltip",
-      x: 24,
-      y: 18,
+      x: 16,
+      y: 11,
       content: {
         kind: "tooltip",
         title: "Arc floor lamp",
         description:
-          "Brushed brass and linen bring a softer, editorial feel to the seating corner.",
+          "The oversized lamp anchors the left side of the room and softens the gaming setup with warm light.",
       },
     },
     {
       id: "mixed-link",
-      x: 82,
-      y: 24,
+      x: 71,
+      y: 18,
       content: {
         kind: "link",
         label: "Open the room guide",
-        href: "/docs/components/hotspot-image",
+        href: "/docs/components/product-card",
       },
     },
   ],
