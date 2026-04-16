@@ -18,6 +18,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { InstallCommand } from "@/components/install-command"
+import { SiteLogo } from "@/components/site-logo"
 import { cn } from "@/lib/utils"
 
 const libraryRepoUrl = "https://github.com/vasilisgee/shoppablecn"
@@ -32,7 +33,11 @@ export default function HomePage() {
           </div>
           <div className="space-y-4">
             <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl md:text-6xl">
-              Shoppable UI components for shadcn.
+              Shoppable UI components for{" "}
+              <span className="inline-flex items-center gap-2 md:gap-3">
+                shadcn
+                <SiteLogo className="size-9 sm:size-11 md:size-13" />
+              </span>
             </h1>
             <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
               Ship interactive product cards, quick-buy overlays, and
