@@ -8,6 +8,7 @@ import {
   QuickOptionsCheckboxExample,
   QuickOptionsDisabledOptionsExample,
   QuickOptionsPillsExample,
+  QuickOptionsProductCardTriggerExample,
   QuickOptionsRadioExample,
   QuickOptionsRequiredValidationExample,
   QuickOptionsSelectExample,
@@ -575,6 +576,103 @@ export function Example() {
         variants={variants}
       />
     </>
+  )
+}
+```
+
+  </Tab>
+</Tabs>
+
+### Product card trigger
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab>
+    <QuickOptionsProductCardTriggerExample />
+  </Tab>
+  <Tab>
+
+```tsx
+import * as React from "react"
+
+import { Card } from "@/components/ui/card"
+import { ProductCard } from "@/components/ui/product-card"
+import { QuickOptions } from "@/components/ui/quick-options"
+import type { Product, ProductVariant } from "@/components/ui/types"
+
+export function Example() {
+  const [open, setOpen] = React.useState(false)
+
+  const variants = [
+    {
+      id: "upholstery",
+      name: "Upholstery",
+      type: "swatch",
+      required: true,
+      options: [
+        { label: "Ivory", value: "ivory", swatch: "#e7e2d9" },
+        { label: "Sand", value: "sand", swatch: "#d4c4b2" },
+      ],
+    },
+    {
+      id: "delivery",
+      name: "Delivery",
+      type: "radio",
+      required: true,
+      options: [
+        { label: "Standard", value: "standard" },
+        { label: "White glove", value: "white-glove" },
+      ],
+    },
+  ] satisfies ProductVariant[]
+
+  const product = {
+    id: "chair-001",
+    title: "Harbor Lounge Chair",
+    category: "Seating",
+    images: [
+      {
+        src: "/products/harbor-lounge-chair.jpg",
+        alt: "Harbor Lounge Chair in ivory upholstery with warm oak legs",
+      },
+    ],
+    price: { amount: 48900, currency: "USD" },
+    badge: { label: "Made to Order", variant: "default" },
+    variants,
+  } satisfies Product
+
+  return (
+    <Card className="group/card relative h-full max-w-sm gap-0 overflow-hidden py-0">
+      <ProductCard.Image layout="vertical" product={product} />
+
+      <div className="flex flex-1 flex-col gap-4 p-4">
+        <div className="space-y-3">
+          <p className="text-sm text-muted-foreground">{product.category}</p>
+          <ProductCard.Title layout="vertical" product={product} />
+        </div>
+
+        <div className="mt-auto flex items-center justify-between gap-3">
+          <ProductCard.Price price={product.price} />
+          <ProductCard.Actions
+            layout="vertical"
+            onPrimaryAction={() => setOpen(true)}
+            primaryActionExpanded={open}
+            primaryActionHasPopup="dialog"
+            primaryActionLabel="Buy now"
+            product={product}
+            showQuickView={false}
+          />
+        </div>
+      </div>
+
+      {product.badge ? <ProductCard.Badge badge={product.badge} /> : null}
+
+      <QuickOptions
+        onAddToCart={() => setOpen(false)}
+        onOpenChange={setOpen}
+        open={open}
+        variants={variants}
+      />
+    </Card>
   )
 }
 ```

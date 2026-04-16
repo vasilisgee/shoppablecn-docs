@@ -4,6 +4,8 @@ import * as React from "react"
 
 import { PreviewFrame } from "@/components/docs/preview-frame"
 import { Button, buttonVariants } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { ProductCard } from "@/components/ui/product-card"
 import { QuickOptions } from "@/components/ui/quick-options"
 import type { ProductVariant } from "@/components/ui/types"
 import {
@@ -183,9 +185,6 @@ export function QuickOptionsTriggerPatternsExample() {
       <div className="relative min-h-[420px] overflow-hidden rounded-lg border bg-background">
         <div className="flex h-full min-h-[420px] flex-col justify-between p-6">
           <div className="space-y-3">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              Trigger patterns
-            </p>
             <div className="space-y-2">
               <h3 className="text-lg font-semibold">Open from any UI</h3>
               <p className="max-w-md text-sm text-muted-foreground">
@@ -224,6 +223,60 @@ export function QuickOptionsTriggerPatternsExample() {
           open={open}
           variants={mockAllQuickOptionVariants}
         />
+      </div>
+    </PreviewFrame>
+  )
+}
+
+export function QuickOptionsProductCardTriggerExample() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <PreviewFrame className="max-w-md">
+      <div className="max-w-sm">
+        <Card className="group/card relative h-full gap-0 overflow-hidden py-0">
+          <ProductCard.Image layout="vertical" product={mockProductWithVariants} />
+
+          <div className="flex flex-1 flex-col gap-4 p-4">
+            <div className="space-y-3">
+              {mockProductWithVariants.category ? (
+                <p className="text-sm text-muted-foreground">
+                  {mockProductWithVariants.category}
+                </p>
+              ) : null}
+              <ProductCard.Title
+                layout="vertical"
+                product={mockProductWithVariants}
+              />
+            </div>
+
+            <div className="mt-auto flex items-center justify-between gap-3">
+              <ProductCard.Price price={mockProductWithVariants.price} />
+              <ProductCard.Actions
+                layout="vertical"
+                onPrimaryAction={() => setOpen(true)}
+                primaryActionExpanded={open}
+                primaryActionHasPopup="dialog"
+                primaryActionLabel="Buy now"
+                product={mockProductWithVariants}
+                showQuickView={false}
+              />
+            </div>
+          </div>
+
+          {mockProductWithVariants.badge ? (
+            <ProductCard.Badge badge={mockProductWithVariants.badge} />
+          ) : null}
+
+          <QuickOptions
+            onAddToCart={() => {
+              setOpen(false)
+            }}
+            onOpenChange={setOpen}
+            open={open}
+            variants={mockProductWithVariants.variants ?? []}
+          />
+        </Card>
       </div>
     </PreviewFrame>
   )
