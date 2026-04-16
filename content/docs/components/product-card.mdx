@@ -8,7 +8,6 @@ import {
   ProductCardCompareAtExample,
   ProductCardHorizontalDetailedExample,
   ProductCardHorizontalExample,
-  ProductCardLeadExample,
   ProductCardOverlayExample,
   ProductCardRatingExample,
   ProductCardSlideshowControlsExample,
@@ -85,37 +84,8 @@ npx shadcn@latest add @shoppablecn/product-card
 
 ## Usage
 
-The minimal setup is a `product` object and the `ProductCard` component.
-
-<Tabs items={["Preview", "Code"]}>
-  <Tab>
-    <ProductCardLeadExample />
-  </Tab>
-  <Tab>
-
-```tsx
-import { ProductCard } from "@/components/ui/product-card"
-import type { Product } from "@/components/ui/types"
-
-export function Example() {
-  const product = {
-    id: "chair-001",
-    title: "Harbor Lounge Chair",
-    images: [
-      {
-        src: "/products/harbor-lounge-chair.jpg",
-        alt: "Harbor Lounge Chair in oat boucle",
-      },
-    ],
-    price: { amount: 64900, currency: "USD" },
-  } satisfies Product
-
-  return <ProductCard product={product} />
-}
-```
-
-  </Tab>
-</Tabs>
+The minimal setup is a `product` object and the `ProductCard` component. The
+default rendering is the vertical layout shown below.
 
 ## Examples
 
@@ -440,11 +410,6 @@ export function Example() {
 </Tabs>
 
 ### Slideshow control variants
-
-<Callout title="Keyboard support stays on">
-  Even when `slideshowControls="none"`, arrow-key navigation still works after
-  the image region receives focus.
-</Callout>
 
 <Tabs items={["Preview", "Code"]}>
   <Tab>

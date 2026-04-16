@@ -12,14 +12,6 @@ import {
   mockProductWithVariants,
 } from "@/lib/mock-data"
 
-export function ProductCardLeadExample() {
-  return (
-    <PreviewFrame className="max-w-sm">
-      <ProductCard product={mockProductSimple} />
-    </PreviewFrame>
-  )
-}
-
 export function ProductCardVerticalExample() {
   return (
     <PreviewFrame className="max-w-sm">

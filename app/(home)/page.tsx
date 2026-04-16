@@ -3,9 +3,10 @@ import {
   Accessibility,
   ArrowRight,
   MousePointerClick,
-  Package,
   Puzzle,
-  SlidersHorizontal,
+  CopyCheck,
+  PanelBottomOpen,
+  SquareEqual,
 } from "lucide-react"
 
 import { buttonVariants } from "@/components/ui/button"
@@ -31,11 +32,11 @@ export default function HomePage() {
           </div>
           <div className="space-y-4">
             <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl md:text-6xl">
-              Shoppable UI blocks for shadcn.
+              Shoppable UI components for shadcn.
             </h1>
             <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
               Ship interactive product cards, quick-buy overlays, and
-              shoppable scenes. Copy, paste, own the code.
+              shoppable scenes.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -57,70 +58,60 @@ export default function HomePage() {
               rel="noreferrer"
               target="_blank"
             >
-              Star on GitHub
+              View on GitHub
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="border-t bg-muted/20">
+      <section className="border-t bg-muted/40">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-20 sm:px-6 md:py-28 lg:px-8">
           <div className="max-w-2xl space-y-3">
             <p className="text-sm font-medium text-muted-foreground">
               Everything you need to ship
             </p>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              Built for teams that want to move fast without giving up control.
+             Your shadcn commerce UI toolkit
             </h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <Card className="h-full justify-between md:col-span-2 lg:col-span-2">
+            <Card className="h-full justify-between md:col-span-2 lg:col-span-2 bg-muted">
               <CardHeader className="space-y-3">
                 <div className="space-y-2">
-                  <CardTitle>Copy &amp; Paste</CardTitle>
+                  <CardTitle className="inline-flex items-center gap-2 mb-4">
+                    <CopyCheck aria-hidden="true" className="size-4" /> Copy &amp; Paste</CardTitle>
                   <CardDescription>
-                    No npm install required. Install via shadcn CLI and own the
-                    code forever.
+                    No npm install required. Install via shadcn CLI.
                   </CardDescription>
                 </div>
               </CardHeader>
-              <CardContent className="pt-2">
-                <InstallCommand command="npx shadcn@latest add @shoppablecn/product-card" />
+              <CardContent>
+                <InstallCommand command="npx shadcn@latest add https://shoppablecn.dev/r/product-card.json" />
               </CardContent>
             </Card>
 
             <Card className="h-full justify-between">
               <CardHeader className="space-y-3">
                 <div className="space-y-2">
-                  <CardTitle>Shadcn Native</CardTitle>
+                  <CardTitle className="inline-flex items-center gap-2 mb-4"><Puzzle aria-hidden="true" className="size-4" /> Native UI</CardTitle>
                   <CardDescription>
                     Built entirely on shadcn/ui primitives. Fits any shadcn
                     project instantly.
                   </CardDescription>
                 </div>
               </CardHeader>
-              <CardContent className="mt-auto pt-2">
-                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
-                  <Puzzle aria-hidden="true" className="size-4" />
-                </div>
-              </CardContent>
             </Card>
 
             <Card className="h-full justify-between">
               <CardHeader className="space-y-3">
                 <div className="space-y-2">
-                  <CardTitle>Accessible by Default</CardTitle>
+                  <CardTitle className="inline-flex items-center gap-2 mb-4"><Accessibility aria-hidden="true" className="size-4" /> Accessibility Ready</CardTitle>
                   <CardDescription>
                     WAI-ARIA compliant. Full keyboard navigation. Screen reader
                     tested.
                   </CardDescription>
                 </div>
               </CardHeader>
-              <CardContent className="mt-auto pt-2">
-                <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
-                  <Accessibility aria-hidden="true" className="size-4" />
-                </div>
-              </CardContent>
             </Card>
           </div>
         </div>
@@ -145,14 +136,13 @@ export default function HomePage() {
               <Card className="h-full justify-between transition-colors hover:bg-muted/30">
                 <CardHeader className="space-y-4">
                   <div className="flex size-10 items-center justify-center rounded-lg border bg-muted">
-                    <Package aria-hidden="true" className="size-4" />
+                    <SquareEqual aria-hidden="true" className="size-6" />
                   </div>
                   <div className="space-y-2">
-                    <CardTitle>ProductCard</CardTitle>
+                    <CardTitle>Product Card</CardTitle>
                     <CardDescription>
                       Flexible product cards with three layouts and three
-                      variant modes. From minimal listings to full-variant
-                      quick-buy.
+                      variant modes. 
                     </CardDescription>
                   </div>
                 </CardHeader>
@@ -172,10 +162,10 @@ export default function HomePage() {
               <Card className="h-full justify-between transition-colors hover:bg-muted/30">
                 <CardHeader className="space-y-4">
                   <div className="flex size-10 items-center justify-center rounded-lg border bg-muted">
-                    <SlidersHorizontal aria-hidden="true" className="size-4" />
+                    <PanelBottomOpen aria-hidden="true" className="size-6" />
                   </div>
                   <div className="space-y-2">
-                    <CardTitle>QuickOptions</CardTitle>
+                    <CardTitle>Quick Options</CardTitle>
                     <CardDescription>
                       Slide-up overlay for variant selection. Swatches, pills,
                       sliders, dropdowns, and more.
@@ -198,13 +188,12 @@ export default function HomePage() {
               <Card className="h-full justify-between transition-colors hover:bg-muted/30">
                 <CardHeader className="space-y-4">
                   <div className="flex size-10 items-center justify-center rounded-lg border bg-muted">
-                    <MousePointerClick aria-hidden="true" className="size-4" />
+                    <MousePointerClick aria-hidden="true" className="size-6" />
                   </div>
                   <div className="space-y-2">
-                    <CardTitle>HotspotImage</CardTitle>
+                    <CardTitle>Hotspot Image</CardTitle>
                     <CardDescription>
-                      Shoppable scenes with pin-based product cards, marketing
-                      tooltips, or any custom content.
+                      Shoppable scenes with pin-based product cards, tooltips, or any custom content.
                     </CardDescription>
                   </div>
                 </CardHeader>
@@ -220,25 +209,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t bg-muted/20">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 py-20 text-center sm:px-6 md:py-28 lg:px-8">
+      <section className="border-t bg-muted/40">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 py-20 text-center sm:px-6 lg:px-8">
           <div className="max-w-2xl space-y-3">
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
               Ready to build shoppable interfaces?
             </h2>
             <p className="text-base leading-7 text-muted-foreground sm:text-lg">
-              Join developers shipping faster, accessible, and better-looking
-              e-commerce UIs.
+              Ship your next ecommerce project today.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
+         
             <Link
               className={cn(buttonVariants({ size: "lg" }))}
-              href="/docs/components/product-card"
+              href="/docs/"
             >
               Get Started
+              <ArrowRight aria-hidden="true" />
             </Link>
-            <Link
+            {/* <Link
               className={cn(
                 buttonVariants({
                   size: "lg",
@@ -250,7 +240,7 @@ export default function HomePage() {
               target="_blank"
             >
               View on GitHub
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>
@@ -258,8 +248,14 @@ export default function HomePage() {
       <footer className="border-t">
         <div className="mx-auto flex w-full max-w-6xl justify-center px-4 py-6 text-center text-sm text-muted-foreground sm:px-6 lg:px-8">
           <p>
-            © {new Date().getFullYear()} shoppablecn. Documentation site for
-            the shoppablecn component library.
+            © {new Date().getFullYear()} shoppablecn - Ecommerce UI Components - View project on <Link
+              className="underline"
+              href={libraryRepoUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </Link>
           </p>
         </div>
       </footer>
