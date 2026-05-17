@@ -27,7 +27,7 @@ export const productCardProps = {
     description: "Chooses the visual layout of the card.",
   },
   variants: {
-    type: <code>"none" | "inline" | "overlay"</code>,
+    type: <code>"none" | "overlay"</code>,
     default: <code>"none"</code>,
     description: "Controls how product variants are handled. Use overlay for the QuickOptions quick-buy flow.",
   },
@@ -40,6 +40,11 @@ export const productCardProps = {
     type: <code>boolean</code>,
     default: <code>false</code>,
     description: "Shows the wishlist button in the card header area.",
+  },
+  isWishlisted: {
+    type: <code>boolean</code>,
+    default: <code>false</code>,
+    description: "Controls the pressed and active visual state of the wishlist button.",
   },
   showRating: {
     type: <code>boolean</code>,

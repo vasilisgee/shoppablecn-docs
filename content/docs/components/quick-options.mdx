@@ -50,8 +50,9 @@ export const quickOptionsProps = {
 }
 
 QuickOptions is the fast path to variant selection. It slides over the product
-surface instead of sending shoppers to a full product page, which makes it a
-good fit for listing grids, recommendation modules, and shoppable scenes.
+surface with a lightweight native transition instead of sending shoppers to a
+full product page, which makes it a good fit for listing grids, recommendation
+modules, and shoppable scenes.
 
 ## Installation
 
@@ -689,6 +690,7 @@ export function Example() {
 - Focus moves into the overlay on open and returns to the trigger when it closes.
 - Escape closes the overlay.
 - Required state is reflected in the disabled state of the submit action.
+- The slide-up opening motion respects `prefers-reduced-motion`.
 - Radix-based controls expose the expected semantics for screen readers.
 
 ## Related

@@ -2,9 +2,9 @@ import Link from "next/link"
 import {
   Accessibility,
   ArrowRight,
-  MousePointerClick,
-  Puzzle,
+  Bot,
   CopyCheck,
+  MousePointerClick,
   PanelBottomOpen,
   SquareEqual,
 } from "lucide-react"
@@ -76,15 +76,17 @@ export default function HomePage() {
               Everything you need to ship
             </p>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-             Your shadcn commerce UI toolkit
+              Your shadcn commerce UI toolkit
             </h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <Card className="h-full justify-between md:col-span-2 lg:col-span-2 bg-muted">
+            <Card className="h-full justify-between bg-muted md:col-span-2 lg:col-span-2">
               <CardHeader className="space-y-3">
                 <div className="space-y-2">
-                  <CardTitle className="inline-flex items-center gap-2 mb-4">
-                    <CopyCheck aria-hidden="true" className="size-4" /> Copy &amp; Paste</CardTitle>
+                  <CardTitle className="mb-4 inline-flex items-center gap-2">
+                    <CopyCheck aria-hidden="true" className="size-4" /> Copy
+                    &amp; Paste
+                  </CardTitle>
                   <CardDescription>
                     No npm install required. Install via shadcn CLI.
                   </CardDescription>
@@ -98,10 +100,12 @@ export default function HomePage() {
             <Card className="h-full justify-between">
               <CardHeader className="space-y-3">
                 <div className="space-y-2">
-                  <CardTitle className="inline-flex items-center gap-2 mb-4"><Puzzle aria-hidden="true" className="size-4" /> Native UI</CardTitle>
+                  <CardTitle className="mb-4 inline-flex items-center gap-2">
+                    <Bot aria-hidden="true" className="size-4" /> AI Ready
+                  </CardTitle>
                   <CardDescription>
-                    Built entirely on shadcn/ui primitives. Fits any shadcn
-                    project instantly.
+                    llms.txt and full-source references help AI tools install
+                    and use the components.
                   </CardDescription>
                 </div>
               </CardHeader>
@@ -110,7 +114,10 @@ export default function HomePage() {
             <Card className="h-full justify-between">
               <CardHeader className="space-y-3">
                 <div className="space-y-2">
-                  <CardTitle className="inline-flex items-center gap-2 mb-4"><Accessibility aria-hidden="true" className="size-4" /> Accessibility Ready</CardTitle>
+                  <CardTitle className="mb-4 inline-flex items-center gap-2">
+                    <Accessibility aria-hidden="true" className="size-4" />{" "}
+                    Accessibility Ready
+                  </CardTitle>
                   <CardDescription>
                     WAI-ARIA compliant. Full keyboard navigation. Screen reader
                     tested.
@@ -146,8 +153,8 @@ export default function HomePage() {
                   <div className="space-y-2">
                     <CardTitle>Product Card</CardTitle>
                     <CardDescription>
-                      Flexible product cards with three layouts and three
-                      variant modes. 
+                      Flexible product cards with three layouts and overlay
+                      variant mode.
                     </CardDescription>
                   </div>
                 </CardHeader>
@@ -225,7 +232,6 @@ export default function HomePage() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-         
             <Link
               className={cn(buttonVariants({ size: "lg" }))}
               href="/docs/"
@@ -233,19 +239,6 @@ export default function HomePage() {
               Get Started
               <ArrowRight aria-hidden="true" />
             </Link>
-            {/* <Link
-              className={cn(
-                buttonVariants({
-                  size: "lg",
-                  variant: "outline",
-                })
-              )}
-              href={libraryRepoUrl}
-              rel="noreferrer"
-              target="_blank"
-            >
-              View on GitHub
-            </Link> */}
           </div>
         </div>
       </section>
